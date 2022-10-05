@@ -9,7 +9,6 @@
         }
 
         protected function executeAction() {
-            $result = SmartLightDAO::getLightsStatus();
-            return compact("result");
+
         }
     }

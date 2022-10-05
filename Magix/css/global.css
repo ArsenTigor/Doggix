@@ -48,3 +48,7 @@ form{
 	clear:both;
 	height:10px;
 }
+
+.center {
+	text-align:center;
+}
