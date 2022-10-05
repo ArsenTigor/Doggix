@@ -23,6 +23,7 @@
                     $key = $result->key;
                     // var_dump($key);exit;
                     $_SESSION["key"] = $key;
+                    $_SESSION["username"] = $data["username"];
                     header("location:chat.php");
 					exit;
                 }
