@@ -1,6 +1,9 @@
 <?php
 
+    require_once("action/ChatAction.php");
 
+    $action = new ChatAction();
+    $data = $action->execute();
 
     require_once("partial/header.php");
 ?>

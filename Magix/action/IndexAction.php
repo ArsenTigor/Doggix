@@ -21,10 +21,12 @@
                 else {
                     // var_dump($result);exit;
                     $key = $result->key;
+                    // var_dump($key);exit;
+                    $_SESSION["key"] = $key;
+                    header("location:chat.php");
+					exit;
                 }
             }
-            
-
             
 
 
