@@ -3,6 +3,7 @@
 
     $action = new IndexAction();
     $data = $action->execute();
+    $pageName = "index";
 
     require_once("partial/header.php");
 ?>

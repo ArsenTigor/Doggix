@@ -6,7 +6,7 @@
         if ($data["public"]) {
             ?>
             <a href="?logout=true">
-                <button>Vider</button>
+                <button>Deconnexion</button>
             </a>
             <?php
         }

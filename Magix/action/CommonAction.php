@@ -15,6 +15,20 @@
         }
 
         public function execute() {
+            if(!empty($_SESSION)){
+                if (!empty($_GET["logout"])) {
+                    $result = CommonAction::callAPI("signout", $_SESSION);
+                    if($result == "SIGNED_OUT") {
+                        header("location:index.php");
+                    }
+                    else{
+                        //"INVALID_KEY"
+                    }
+                    session_unset();
+                    session_destroy();
+                    session_start();
+                }
+            }
 
 
             if (empty($_SESSION["visibility"])) {
@@ -31,6 +45,7 @@
             $data = $this->executeAction();
             $data["public"] = $_SESSION["visibility"] >= CommonAction::$VISIBILITY_PUBLIC;
             $data["username"] = !empty($_SESSION["username"]) ? $_SESSION["username"] : "Invité";
+            $data["key"] = !empty($_SESSION["key"]) ? $_SESSION["key"] : "Not logged";
             return $data;
         }
 
