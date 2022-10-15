@@ -28,7 +28,6 @@
     </div>
 
     <div id="terrain">
-        <div id="corgi"></div>
     </div>
 
 </div>

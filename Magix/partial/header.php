@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/<?= $pageName?>.css">
-    <script src="js/<?= $pageName?>.js"></script>
+    <script type="module" src="js/<?= $pageName?>.js"></script>
 
 
 
