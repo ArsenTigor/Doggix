@@ -18,7 +18,12 @@
 }
 
 #corgi{
-    width: 32px;
-    height: 28px;
-    background-color: yellow;
+    width: 150px;
+    height: 120px;
+}
+
+.tennisball{
+    width: 50px;
+    height: 50px;
+    background-color: red;
 }
