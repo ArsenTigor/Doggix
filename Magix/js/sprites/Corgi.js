@@ -59,20 +59,6 @@ export default class Corgi{
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         this.corgi.tick(this.x, this.y);
         return true;
     }
@@ -86,7 +72,7 @@ export default class Corgi{
         this.targetY = posYBall;
         let distance  =  Math.sqrt((posXBall - this.x)*(posXBall - this.x) + (posYBall - this.y)* (posYBall - this.y))
 
-        if(distance < 500){
+        if(distance < 400){
             this.vitX = Math.ceil(Math.abs((posXBall - this.x) / 2000));
             this.vitY = Math.ceil(Math.abs((posYBall - this.y) / 2000));
             if(this.x > posXBall){
@@ -96,7 +82,7 @@ export default class Corgi{
                 this.sniffWalkRight();
             }
         }
-        else if ( distance >= 500 && distance < 1200){
+        else if ( distance >= 400 && distance < 900){
             this.vitX = Math.ceil(Math.abs((posXBall - this.x) / 1500));
             this.vitY = Math.ceil(Math.abs((posYBall - this.y) / 1500));
             if(this.x > posXBall){
