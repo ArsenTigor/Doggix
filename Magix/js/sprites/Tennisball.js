@@ -1,19 +1,29 @@
 export default class Tennisball{
 
     constructor(x, y){
-        this.x = x;
-        this.yZero = y;
-        this.y = y - Math.random() * 150;
+        this.removeMe = false;
 
-        this.node = document.createElement("div");
-        this.node.classList("tennisball");
+        this.x = x - 20;
+        this.yZero = y - 20;
+        this.y = y - Math.random() * 250 - 200;
+
+        this.node = document.createElement("img");
+        this.node.classList.add("tennisball");
 
         this.node.style.top = this.y + "px";
         this.node.style.left = this.x + "px";
 
-        this.speedY = 2;
-        this.velocityY = 0.5;
+        this.parentNode = document.querySelector("#terrain");
+        this.parentNode.append(this.node);
+
+        this.speedY = 1;
+        this.velocityY = 0.2;
         
+    }
+
+
+    deleteNode(){
+        this.removeMe = true;
     }
 
     tick() {
@@ -30,5 +40,12 @@ export default class Tennisball{
 
         this.node.style.top = y + "px";
 
+        if(this.removeMe == true){
+            this.node.remove();
+            return false;
+        }
+
+        return true; 
+        
     }
 }
