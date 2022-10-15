@@ -23,6 +23,7 @@ export default class Corgi{
         this.x = this.initialX;
         this.y = this.initialY;
         this.chasingBall = false;
+        this.idle = true;
         this.vitX = 0;
         this.vitY = 0;
         this.targetX = 1000;
@@ -117,7 +118,22 @@ export default class Corgi{
         }
     }
 
+    isIdle(){
+        return this.idle;
+    }
 
+    stopIdle(){
+        this.idle = false;
+    }
+    
+    startIdle(){
+        this.idle = true;
+    }
+
+
+    isBallChasing(){
+        return this.chasingBall;
+    }
 
     chaseBall(){
         this.chasingBall = true;

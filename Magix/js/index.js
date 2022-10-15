@@ -16,6 +16,7 @@ window.addEventListener("load", () => {
 
 const tick = () => {
     corgi.tick();
+
 	
     for (let i = 0; i < spriteList.length; i++) {
 		let alive = spriteList[i].tick();
@@ -33,15 +34,61 @@ const tick = () => {
 			ballSpriteList.splice(i, 1);
 			i--;
 		}
-
-        if(ballSpriteList.length > 0){
-            if (corgi.getX() == ballSpriteList[i].getX() - 75 && corgi.getY() == ballSpriteList[i].getY() - 75){
-                ballSpriteList[i].deleteNode();
-            }
-        }
 	}
 
 
+    if(ballSpriteList.length > 0){
+        if (corgi.getX() == ballSpriteList[0].getX() - 75 && corgi.getY() == ballSpriteList[0].getY() - 75){
+            ballSpriteList[0].deleteNode();
+            corgi.stopChaseBall();
+        }
+
+        if (!corgi.isBallChasing()){
+            corgi.chaseBall();
+            setTimeout(() => {
+                corgi.setSpeed(ballSpriteList[0].getX(), ballSpriteList[0].getY())
+            }, 300)
+        }
+    }
+    else{
+        if (!corgi.isIdle()){
+            let idleChoice = Math.floor(Math.random() * 6);
+            switch(idleChoice){
+                case 0:
+                    corgi.idleLeft1();
+                    corgi.startIdle();
+                    corgi.stopChaseBall();
+                    break;
+                case 1:
+                    corgi.idleLeft2();
+                    corgi.startIdle();
+                    corgi.stopChaseBall();
+                    break;
+                case 2:
+                    corgi.idleRight1();
+                    corgi.startIdle();
+                    corgi.stopChaseBall();
+                    break;
+                case 3:
+                    corgi.idleRight2();
+                    corgi.startIdle();
+                    corgi.stopChaseBall();
+                    break;
+                case 4:
+                    corgi.idleSitLeft();
+                    corgi.startIdle();
+                    corgi.stopChaseBall();
+                    break;
+                case 5:
+                    corgi.idleSitRight();
+                    corgi.startIdle();
+                    corgi.stopChaseBall();
+                    break;
+            }
+        }
+        
+    }
+    
 
 
 
@@ -57,12 +104,12 @@ document.onclick = e => {
     if (e.pageY > container.offsetTop){
         if(ballSpriteList.length < maxTennisBall){
             ballSpriteList.push(new Tennisball(e.pageX, e.pageY));
-            corgi.setSpeed(e.pageX -20, e.pageY - 20);
-
+            corgi.stopIdle();
         }
         else{
             ballSpriteList[0].deleteNode();
             ballSpriteList.push(new Tennisball(e.pageX, e.pageY));
+            corgi.stopChaseBall();
         }
     }
 }
