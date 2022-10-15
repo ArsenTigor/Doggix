@@ -7,7 +7,7 @@ export default class Tennisball{
         this.yZero = y - 20;
         this.y = y - Math.random() * 250 - 200;
 
-        this.node = document.createElement("img");
+        this.node = document.createElement("div");
         this.node.classList.add("tennisball");
 
         this.node.style.top = this.y + "px";
@@ -19,6 +19,14 @@ export default class Tennisball{
         this.speedY = 1;
         this.velocityY = 0.2;
         
+    }
+
+    getX(){
+        return this.x;
+    }
+
+    getY(){
+        return this.yZero;
     }
 
 
@@ -46,6 +54,6 @@ export default class Tennisball{
         }
 
         return true; 
-        
+
     }
 }

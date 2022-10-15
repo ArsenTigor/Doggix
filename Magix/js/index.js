@@ -2,17 +2,22 @@ import Corgi from './sprites/Corgi.js';
 import Tennisball from './sprites/Tennisball.js'
 
 let spriteList = [];
-let tennisballList = [];
+let ballSpriteList = [];
 let container = document.querySelector("#terrain");
 let maxTennisBall = 10;
+let corgi = new Corgi();
+
+
 
 window.addEventListener("load", () => {
-    spriteList.push(new Corgi());
     tick();
+
 })
 
 const tick = () => {
-	for (let i = 0; i < spriteList.length; i++) {
+    corgi.tick();
+	
+    for (let i = 0; i < spriteList.length; i++) {
 		let alive = spriteList[i].tick();
 
 		if (!alive) {
@@ -21,26 +26,43 @@ const tick = () => {
 		}
 	}
 
-    for (let i = 0; i < tennisballList.length; i++) {
-		let alive = tennisballList[i].tick();
+    for (let i = 0; i < ballSpriteList.length; i++) {
+		let alive = ballSpriteList[i].tick();
 
 		if (!alive) {
-			tennisballList.splice(i, 1);
+			ballSpriteList.splice(i, 1);
 			i--;
 		}
+
+        if(ballSpriteList.length > 0){
+            if (corgi.getX() == ballSpriteList[i].getX() - 75 && corgi.getY() == ballSpriteList[i].getY() - 75){
+                ballSpriteList[i].deleteNode();
+            }
+        }
 	}
+
+
+
+
+
+
+
+
+
     window.requestAnimationFrame(tick);
 }
 
 
 document.onclick = e => {
     if (e.pageY > container.offsetTop){
-        if(tennisballList.length < maxTennisBall){
-            tennisballList.push(new Tennisball(e.pageX, e.pageY));
+        if(ballSpriteList.length < maxTennisBall){
+            ballSpriteList.push(new Tennisball(e.pageX, e.pageY));
+            corgi.setSpeed(e.pageX -20, e.pageY - 20);
+
         }
         else{
-            tennisballList[0].deleteNode();
-            tennisballList.push(new Tennisball(e.pageX, e.pageY));
+            ballSpriteList[0].deleteNode();
+            ballSpriteList.push(new Tennisball(e.pageX, e.pageY));
         }
     }
 }

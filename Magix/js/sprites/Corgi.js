@@ -4,18 +4,16 @@ export default class Corgi{
     constructor() {
         let columnCount = 11;
         let rowCount = 16;
-        this.refreshDelay = 150; //maison
+        let refreshDelay = 150; //maison
         let loopColumn = true;
         let scale = 3;
 
         this.node = document.createElement("div");
         this.node.setAttribute('id', 'corgi');
-
-
         this.parentNode = document.querySelector("#terrain");
         this.parentNode.append(this.node);
 
-        this.corgi = new TiledImage("img/corgi.png", columnCount, rowCount, this.refreshDelay, loopColumn, scale, this.node);
+        this.corgi = new TiledImage("img/corgi.png", columnCount, rowCount, refreshDelay, loopColumn, scale, this.node);
         this.corgi.changeRow(3);
         this.corgi.changeMinMaxInterval(3, 8)
 
@@ -24,12 +22,117 @@ export default class Corgi{
         this.initialY = this.parentNode.offsetTop + 50;
         this.x = this.initialX;
         this.y = this.initialY;
+        this.chasingBall = false;
+        this.vitX = 0;
+        this.vitY = 0;
+        this.targetX = 1000;
+        this.targetY = 1000;
+
 
     }
 
     tick(){
+
+        let ajustedTargetX = this.targetX - 75;
+        let ajustedTargetY = this.targetY - 75;
+
+        if(this.x < ajustedTargetX + 2 && this.x > ajustedTargetX - 2){
+            this.x = ajustedTargetX;
+        }
+        else if(this.x < ajustedTargetX) {
+            this.x = this.x + this.vitX;
+        }
+        else if(this.x > ajustedTargetX) {
+            this.x = this.x - this.vitX;
+        }
+        
+
+        if(this.y < ajustedTargetY + 2 && this.y > ajustedTargetY - 2){
+            this.y = ajustedTargetY;
+        }
+        else if(this.y < ajustedTargetY) {
+            this.y = this.y + this.vitY;
+        }
+        else if(this.y > ajustedTargetY) {
+            this.y = this.y - this.vitY;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         this.corgi.tick(this.x, this.y);
         return true;
+    }
+
+
+
+    setSpeed(posXBall, posYBall){    
+        
+
+        this.targetX = posXBall;
+        this.targetY = posYBall;
+        let distance  =  Math.sqrt((posXBall - this.x)*(posXBall - this.x) + (posYBall - this.y)* (posYBall - this.y))
+
+        if(distance < 500){
+            this.vitX = Math.ceil(Math.abs((posXBall - this.x) / 2000));
+            this.vitY = Math.ceil(Math.abs((posYBall - this.y) / 2000));
+            if(this.x > posXBall){
+                this.sniffWalkLeft();
+            }
+            else{
+                this.sniffWalkRight();
+            }
+        }
+        else if ( distance >= 500 && distance < 1200){
+            this.vitX = Math.ceil(Math.abs((posXBall - this.x) / 1500));
+            this.vitY = Math.ceil(Math.abs((posYBall - this.y) / 1500));
+            if(this.x > posXBall){
+                this.walkLeft();
+            }
+            else{
+                this.walkRight();
+            }
+        }
+        else{
+            this.vitX = Math.ceil(Math.abs((posXBall - this.x) / 700));
+            this.vitY = Math.ceil(Math.abs((posYBall - this.y) / 700));
+            if(this.x > posXBall){
+                this.runLeft();
+            }
+            else{
+                this.runRight();
+            }
+        }
+    }
+
+
+
+    chaseBall(){
+        this.chasingBall = true;
+    }
+
+    stopChaseBall(){
+        this.chasingBall = false;
+    }
+    
+    getX(){
+        return this.x;
+    }
+
+    getY(){
+        return this.y;
     }
 
     jumpingRight(){
@@ -107,7 +210,7 @@ export default class Corgi{
         this.corgi.changeMinMaxInterval(0, 7)
     }
 
-    sniffWalkRight(){
+    sniffWalkLeft(){
         this.corgi.changeRow(15);
         this.corgi.changeMinMaxInterval(0, 7)
     }
