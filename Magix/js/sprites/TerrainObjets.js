@@ -4,11 +4,20 @@ export default class TerrainObjets{
 
         this.node = document.createElement("div");
 
-        this.random =  Math.floor(Math.random() * 1);
+        this.random =  Math.floor(Math.random() * 4);
 
         switch(this.random){
             case 0:
                 this.node.classList.add("bush");
+                break;
+            case 1:
+                this.node.classList.add("trunk");
+                break;
+            case 2:
+                this.node.classList.add("flower");
+                break;
+            case 3:
+                this.node.classList.add("tree");
                 break;
         }
        

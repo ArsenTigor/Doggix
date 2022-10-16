@@ -43,11 +43,36 @@
 }
 
 .bush{
-    background-image: url(../img/gif/bush.gif);
+    background-image: url(../img/deco/bush.gif);
     background-size:cover;
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     position: absolute;
+}
+
+.trunk{
+    background-image: url(../img/deco/trunk.gif);
+    background-size:cover;
+    width: 250px;
+    height: 250px;
+    position: absolute;
+}
+
+.flower{
+    background-image: url(../img/deco/flower.gif);
+    background-size:cover;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+}
+
+.tree{
+    background-image: url(../img/deco/tree2.gif);
+    background-size:cover;
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    z-index: 2;
 }
 
 #indextop{

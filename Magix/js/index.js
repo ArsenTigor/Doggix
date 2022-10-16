@@ -14,8 +14,8 @@ let corgi = new Corgi();
 
 
 window.addEventListener("load", () => {
-    let distanceBetweenX = 250;
-    let distanceBetweenY = 150;
+    let distanceBetweenX = 400;
+    let distanceBetweenY = 200;
     let nbrRow = Math.floor((screen.height - terrain.offsetTop)/distanceBetweenY);
     let nbrColumn = Math.floor(screen.width/distanceBetweenX);
     let tempX = 0;

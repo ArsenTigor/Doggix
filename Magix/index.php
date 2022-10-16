@@ -10,7 +10,7 @@
 <div id=indextop>
     <div id="titlebox">
         <div id="title">Doggix</div>
-        <div id="subtitle">Where all doggos are good doggo</div>
+        <div id="subtitle">Where every doggo is a good doggo</div>
     </div>
 
     <form id="loginform" action="index.php" method="post">
