@@ -1,5 +1,6 @@
 import Corgi from './sprites/Corgi.js';
 import Tennisball from './sprites/Tennisball.js'
+import TerrainObjets from './sprites/TerrainObjets.js'
 
 let spriteList = [];
 let ballSpriteList = [];
@@ -7,25 +8,25 @@ let terrain = document.querySelector("#terrain");
 let maxTennisBall = 10;
 let corgi = new Corgi();
 
-let nbrRow = Math.floor((screen.height - terrain.offsetTop)/150);
-let nbrColumn = Math.floor(screen.width/150);
-let tempX = 0;
-let tempY = 0;
-console.log("hello");
-for(let i = 0; i <= nbrRow; i+=150){
-    for(let j = 0; j <= nbrColumn; j+=150){
-        console.log("hello");
-        tempX = j + Math.floor(Math.random() * 150);
-        tempY = i + Math.floor(Math.random() * 150);
-        spriteList.push(new TerrainObjets(tempX, tempY));
-    }
-}
+
 
 
 
 
 window.addEventListener("load", () => {
-    console.log("hello");
+    let distanceBetweenX = 250;
+    let distanceBetweenY = 150;
+    let nbrRow = Math.floor((screen.height - terrain.offsetTop)/distanceBetweenY);
+    let nbrColumn = Math.floor(screen.width/distanceBetweenX);
+    let tempX = 0;
+    let tempY = 0;
+    for(let i = 0; i < nbrRow*distanceBetweenY - distanceBetweenY; i+=distanceBetweenY){
+        for(let j = 0; j < nbrColumn*distanceBetweenX; j+=distanceBetweenX){
+            tempX = j + Math.floor(Math.random() * distanceBetweenX);
+            tempY = terrain.offsetTop + i + Math.floor(Math.random() * distanceBetweenY);
+            spriteList.push(new TerrainObjets(tempX, tempY));
+        }
+    }
     tick();
 })
 

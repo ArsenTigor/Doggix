@@ -10,16 +10,13 @@ export default class TerrainObjets{
             case 0:
                 this.node.classList.add("bush");
                 break;
-
         }
        
-
         this.node.style.top = y + "px";
         this.node.style.left = x + "px";
 
         this.parentNode = document.querySelector("#terrain");
         this.parentNode.append(this.node);
-
 
     }
 
