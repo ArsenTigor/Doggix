@@ -25,9 +25,9 @@
 }
 
 .tennisball{
-    width: 40px;
-    height: 40px;
-    background-size: contain;
+    width: 25px;
+    height: 25px;
+    background-size: cover;
     background-image: url(../img/tennis-ball2.png);
     position: absolute;
 }

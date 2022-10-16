@@ -25,6 +25,7 @@ form{
     position: fixed;
     right: 10px;
     top: 10px;
+    font-size: larger;
 }
 
 #loginform{
@@ -37,7 +38,7 @@ form{
 
 .form-label {
 	float:left;
-	width:100px;
+	width:125px;
 	text-align:right;
 	margin-right:5px;
 }
