@@ -8,6 +8,11 @@
     require_once("partial/header.php");
 ?>
 
+<div id="titlebox">
+    <div id="title">Doggix</div>
+    <div id="subtitle">Where all doggo are good doggo</div>
+</div>
+
 <form id="loginform" action="index.php" method="post">
     <div class="form-label">Utilisateur : </div>
     <div class="form-input"><input type="text" name="username"></div>
@@ -24,7 +29,6 @@
 
 <div id="conteneur">
     <div id="ciel">
-        a
     </div>
 
     <div id="terrain">

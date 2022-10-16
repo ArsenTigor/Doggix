@@ -12,6 +12,4 @@
 
 
 </head>
-<header>End of header</header>
 <body>
-<div>This is start of body</div>
