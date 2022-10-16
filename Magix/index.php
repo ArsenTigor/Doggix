@@ -32,6 +32,7 @@
 <div id="conteneur">
 
     <div id="uppersection">
+        <div id="citybackground1"></div>
         <div id="city"></div>
     </div>
     
