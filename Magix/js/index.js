@@ -3,19 +3,35 @@ import Tennisball from './sprites/Tennisball.js'
 
 let spriteList = [];
 let ballSpriteList = [];
-let container = document.querySelector("#terrain");
+let terrain = document.querySelector("#terrain");
 let maxTennisBall = 10;
 let corgi = new Corgi();
+
+let nbrRow = Math.floor((screen.height - terrain.offsetTop)/150);
+let nbrColumn = Math.floor(screen.width/150);
+let tempX = 0;
+let tempY = 0;
+console.log("hello");
+for(let i = 0; i <= nbrRow; i+=150){
+    for(let j = 0; j <= nbrColumn; j+=150){
+        console.log("hello");
+        tempX = j + Math.floor(Math.random() * 150);
+        tempY = i + Math.floor(Math.random() * 150);
+        spriteList.push(new TerrainObjets(tempX, tempY));
+    }
+}
+
 
 
 
 window.addEventListener("load", () => {
+    console.log("hello");
     tick();
-
 })
 
 const tick = () => {
     corgi.tick();
+
 
 	
     for (let i = 0; i < spriteList.length; i++) {
@@ -83,7 +99,7 @@ const tick = () => {
                     corgi.idleSitRight();
                     corgi.startIdle();
                     corgi.stopChaseBall();
-                    break;
+                break;
             }
         }
         
@@ -94,7 +110,7 @@ const tick = () => {
 
 
 document.onclick = e => {
-    if (e.pageY > container.offsetTop){
+    if (e.pageY > terrain.offsetTop){
         if(ballSpriteList.length < maxTennisBall){
             ballSpriteList.push(new Tennisball(e.pageX, e.pageY));
             corgi.stopIdle();
