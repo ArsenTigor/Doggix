@@ -13,7 +13,7 @@ export default class Tennisball{
         this.node.style.top = this.y + "px";
         this.node.style.left = this.x + "px";
 
-        this.parentNode = document.querySelector("#terrain");
+        this.parentNode = document.querySelector("#conteneur");
         this.parentNode.append(this.node);
 
         this.speedY = 1;

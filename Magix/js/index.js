@@ -23,7 +23,7 @@ window.addEventListener("load", () => {
     for(let i = 0; i < nbrRow*distanceBetweenY - distanceBetweenY; i+=distanceBetweenY){
         for(let j = 0; j < nbrColumn*distanceBetweenX; j+=distanceBetweenX){
             tempX = j + Math.floor(Math.random() * distanceBetweenX);
-            tempY = terrain.offsetTop + i + Math.floor(Math.random() * distanceBetweenY);
+            tempY = i + Math.floor(Math.random() * distanceBetweenY);
             spriteList.push(new TerrainObjets(tempX, tempY));
         }
     }
@@ -103,16 +103,14 @@ const tick = () => {
                 break;
             }
         }
-        
     }
-
     window.requestAnimationFrame(tick);
 }
 
 
-document.onclick = e => {
+terrain.onclick = e => {
     if (e.pageY > terrain.offsetTop){
-        if(ballSpriteList.length < maxTennisBall){
+        if(ballSpriteList.length < maxTennisBall){     
             ballSpriteList.push(new Tennisball(e.pageX, e.pageY));
             corgi.stopIdle();
         }

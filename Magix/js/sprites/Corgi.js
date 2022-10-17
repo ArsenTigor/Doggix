@@ -10,16 +10,18 @@ export default class Corgi{
 
         this.node = document.createElement("div");
         this.node.setAttribute('id', 'corgi');
-        this.parentNode = document.querySelector("#terrain");
+        this.parentNode = document.querySelector("#conteneur");
         this.parentNode.append(this.node);
+
+        this.terrainNode = document.querySelector("#terrain");
 
         this.corgi = new TiledImage("img/corgi.png", columnCount, rowCount, refreshDelay, loopColumn, scale, this.node);
         this.corgi.changeRow(3);
         this.corgi.changeMinMaxInterval(3, 8)
 
 
-        this.initialX = this.parentNode.offsetLeft + 50;
-        this.initialY = this.parentNode.offsetTop + 50;
+        this.initialX = 50;
+        this.initialY = 50 + this.terrainNode.offsetTop;
         this.x = this.initialX;
         this.y = this.initialY;
         this.chasingBall = false;
