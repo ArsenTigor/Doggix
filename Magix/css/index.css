@@ -74,6 +74,15 @@
     z-index: 1;
 }
 
+#bubble{
+    width: 50px;
+    height: 30px;
+    z-index: 1;
+    background-image: url(../img/bubble.png);
+    background-size: cover;
+    position:absolute;
+}
+
 .tennisball{
     width: 25px;
     height: 25px;

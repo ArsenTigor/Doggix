@@ -8,10 +8,17 @@ export default class Corgi{
         let loopColumn = true;
         let scale = 3;
 
+
+
         this.node = document.createElement("div");
         this.node.setAttribute('id', 'corgi');
+
+        this.nodeBubble = document.createElement("div");
+        this.nodeBubble.setAttribute('id', 'bubble');
+
         this.parentNode = document.querySelector("#conteneur");
         this.parentNode.append(this.node);
+        this.parentNode.append(this.nodeBubble);
 
         this.terrainNode = document.querySelector("#terrain");
 
@@ -30,6 +37,10 @@ export default class Corgi{
         this.vitY = 0;
         this.targetX = 1000;
         this.targetY = 1000;
+
+        this.xbubble = this.x + 20;
+        this.ybubble = this.y + 50;
+
 
 
     }
@@ -60,7 +71,11 @@ export default class Corgi{
             this.y = this.y - this.vitY;
         }
 
+        this.xbubble = this.x + 20;
+        this.ybubble = this.y + 50;
 
+        this.nodeBubble.style.top = this.ybubble + "px";
+        this.nodeBubble.style.left = this.xbubble + "px";
         this.corgi.tick(this.x, this.y);
         return true;
     }
