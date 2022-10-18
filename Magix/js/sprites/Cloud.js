@@ -3,18 +3,31 @@ export default class Cloud{
     constructor(){
 
         this.node = document.createElement("div");
-        this.node.classList.add("cloud");
+
+        this.zindex = Math.floor(Math.random() * 3) - 3;
+        this.type = Math.floor(Math.random() * 2);
+
+        switch(this.type){
+            case 0:
+                this.node.classList.add("cloud1");
+                break;
+            case 1:
+                this.node.classList.add("cloud2");
+                break;
+        }
+        this.node.style.zIndex = this.zindex;
+
         this.parentNode = document.querySelector("#uppersection");
         this.parentNode.append(this.node);
         
         this.separation = document.querySelector("#terrain");
 
         this.x = -100;
-        this.y = Math.random()*400 - 100;
+        this.y = Math.random()*300;
         this.node.style.top = this.y + "px";
         this.node.style.left = this.x + "px";
         
-        this.speedX = Math.random() * 5;
+        this.speedX = 1;
     }
 
     tick() {
@@ -22,6 +35,7 @@ export default class Cloud{
         this.node.style.left = this.x + "px";
 
         if (this.x > screen.width) {
+            this.node.remove();
             return false;
         }
 

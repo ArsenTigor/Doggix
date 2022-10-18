@@ -1,6 +1,5 @@
 import Cloud from './sprites/Cloud.js';
 import Corgi from './sprites/Corgi.js';
-import Cloud from './sprites/Cloud.js';
 import Tennisball from './sprites/Tennisball.js'
 import TerrainObjets from './sprites/TerrainObjets.js'
 
@@ -28,7 +27,8 @@ window.addEventListener("load", () => {
 
     setInterval(() => {
         spriteList.push(new Cloud());
-    }, 1000);
+        console.log("hi")
+    }, 7000);
 
     tick();
 })
