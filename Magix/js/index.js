@@ -1,4 +1,6 @@
+import Cloud from './sprites/Cloud.js';
 import Corgi from './sprites/Corgi.js';
+import Cloud from './sprites/Cloud.js';
 import Tennisball from './sprites/Tennisball.js'
 import TerrainObjets from './sprites/TerrainObjets.js'
 
@@ -8,11 +10,6 @@ let terrain = document.querySelector("#terrain");
 let maxTennisBall = 10;
 let corgi = new Corgi();
 
-
-
-
-
-
 window.addEventListener("load", () => {
     let distanceBetweenX = 400;
     let distanceBetweenY = 200;
@@ -20,6 +17,7 @@ window.addEventListener("load", () => {
     let nbrColumn = Math.floor(screen.width/distanceBetweenX);
     let tempX = 0;
     let tempY = 0;
+
     for(let i = 0; i < nbrRow*distanceBetweenY - distanceBetweenY; i+=distanceBetweenY){
         for(let j = 0; j < nbrColumn*distanceBetweenX; j+=distanceBetweenX){
             tempX = j + Math.floor(Math.random() * distanceBetweenX);
@@ -27,13 +25,16 @@ window.addEventListener("load", () => {
             spriteList.push(new TerrainObjets(tempX, tempY));
         }
     }
+
+    setInterval(() => {
+        spriteList.push(new Cloud());
+    }, 1000);
+
     tick();
 })
 
 const tick = () => {
     corgi.tick();
-
-
 	
     for (let i = 0; i < spriteList.length; i++) {
 		let alive = spriteList[i].tick();
@@ -63,8 +64,8 @@ const tick = () => {
         if (!corgi.isBallChasing()){
             corgi.chaseBall();
             setTimeout(() => {
-                corgi.setSpeed(ballSpriteList[0].getX(), ballSpriteList[0].getY())
-            }, 300)
+                corgi.setSpeed(ballSpriteList[0].getX(), ballSpriteList[0].getY());
+            }, 300);
         }
     }
     else{
