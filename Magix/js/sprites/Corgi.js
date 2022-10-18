@@ -38,8 +38,8 @@ export default class Corgi{
         this.targetX = 1000;
         this.targetY = 1000;
 
-        this.xbubble = this.x + 20;
-        this.ybubble = this.y + 50;
+        this.xbubble = this.x + 75;
+        this.ybubble = this.y - 50;
 
 
 
@@ -71,8 +71,8 @@ export default class Corgi{
             this.y = this.y - this.vitY;
         }
 
-        this.xbubble = this.x + 20;
-        this.ybubble = this.y + 50;
+        this.xbubble = this.x + 75;
+        this.ybubble = this.y - 50;
 
         this.nodeBubble.style.top = this.ybubble + "px";
         this.nodeBubble.style.left = this.xbubble + "px";
