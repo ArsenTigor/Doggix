@@ -44,7 +44,7 @@
             // Template method
             $data = $this->executeAction();
             $data["public"] = $_SESSION["visibility"] >= CommonAction::$VISIBILITY_PUBLIC;
-            $data["username"] = !empty($_SESSION["username"]) ? $_SESSION["username"] : "Invité";
+            $data["username"] = !empty($_SESSION["username"]) ? $_SESSION["username"] : "hooman";
             $data["key"] = !empty($_SESSION["key"]) ? $_SESSION["key"] : "Not logged";
             return $data;
         }

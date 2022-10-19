@@ -27,7 +27,6 @@ window.addEventListener("load", () => {
 
     setInterval(() => {
         spriteList.push(new Cloud());
-        console.log("hi")
     }, 7000);
 
     tick();

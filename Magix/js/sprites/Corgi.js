@@ -7,26 +7,29 @@ export default class Corgi{
         let refreshDelay = 150; //maison
         let loopColumn = true;
         let scale = 3;
+        
 
-
+        this.user = "hooman";
 
         this.node = document.createElement("div");
         this.node.setAttribute('id', 'corgi');
 
         this.nodeBubble = document.createElement("div");
         this.nodeBubble.setAttribute('id', 'bubble');
+        this.nodeBubble2 = document.createElement("div");
+        this.nodeBubble2.setAttribute('id', 'bubble2');
 
         this.parentNode = document.querySelector("#conteneur");
         this.parentNode.append(this.node);
         this.parentNode.append(this.nodeBubble);
+        this.parentNode.append(this.nodeBubble2);
 
         this.terrainNode = document.querySelector("#terrain");
 
         this.corgi = new TiledImage("img/corgi.png", columnCount, rowCount, refreshDelay, loopColumn, scale, this.node);
         this.corgi.changeRow(3);
-        this.corgi.changeMinMaxInterval(3, 8)
-
-
+        this.corgi.changeMinMaxInterval(3, 8);
+        
         this.initialX = 50;
         this.initialY = 50 + this.terrainNode.offsetTop;
         this.x = this.initialX;
@@ -38,10 +41,18 @@ export default class Corgi{
         this.targetX = 1000;
         this.targetY = 1000;
 
-        this.xbubble = this.x + 75;
-        this.ybubble = this.y - 50;
 
 
+        this.text = "<3" + this.user;
+        setInterval(() => {
+            this.nodeBubble.innerText = this.text;
+            this.nodeBubble.style.display = "flex";
+            this.nodeBubble2.style.display = "flex";
+            setTimeout(() => {
+                this.nodeBubble.style.display = "none";
+                this.nodeBubble2.style.display = "none";
+            }, 3000);
+        }, 10000);
 
     }
 
@@ -71,15 +82,18 @@ export default class Corgi{
             this.y = this.y - this.vitY;
         }
 
-        this.xbubble = this.x + 75;
-        this.ybubble = this.y - 50;
+        this.xbubble = this.x + 100;
+        this.ybubble = this.y - 115;
+        this.xbubble2 = this.x + 110;
+        this.ybubble2 = this.y - 15;
 
         this.nodeBubble.style.top = this.ybubble + "px";
         this.nodeBubble.style.left = this.xbubble + "px";
+        this.nodeBubble2.style.top = this.ybubble2 + "px";
+        this.nodeBubble2.style.left = this.xbubble2 + "px";
         this.corgi.tick(this.x, this.y);
         return true;
     }
-
 
 
     setSpeed(posXBall, posYBall){    
