@@ -1,6 +1,5 @@
 <?php
     require_once("action/CommonAction.php");
-    require_once("action/DAO/SmartLightDAO.php");
 
     class AjaxAction extends CommonAction {
 
@@ -9,6 +8,16 @@
         }
 
         protected function executeAction() {
-
+            $result = "";
+            if(isset($_POST["typeOfRoom"])){
+                $data = [];
+                $data["key"] = $_SESSION["key"];
+                if($_POST["typeOfRoom"] == "TRAINING"){
+                    $data["type"] = "TRAINING";
+                    $result = parent::callAPI("games/auto-match", $data);
+                }
+            }
+            return compact("result");
         }
+    
     }
