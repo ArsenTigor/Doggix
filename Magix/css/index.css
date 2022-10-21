@@ -72,6 +72,15 @@
     z-index: 1;
 }
 
+#shadowcorgi {
+    width: 140px;
+    height: 30px;
+    background: gray;
+    opacity: 0.5;
+    border-radius: 50%;
+    position:absolute;
+}
+
 #bubble{
     width: 130px;
     height: 110px;
@@ -96,9 +105,6 @@
     position:absolute;
     opacity: 0.8;
     display: none;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
 }
 
 .tennisball{
@@ -107,6 +113,16 @@
     background-size: cover;
     background-image: url(../img/tennis-ball.png);
     position: absolute;
+}
+
+.tennisballshadow{
+    width: 25px;
+    height: 10px;
+    background: gray;
+    opacity: 0.5;
+    border-radius: 50%;
+    position: absolute;
+
 }
 
 .bush{

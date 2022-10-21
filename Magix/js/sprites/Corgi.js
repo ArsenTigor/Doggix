@@ -18,11 +18,15 @@ export default class Corgi{
         this.nodeBubble.setAttribute('id', 'bubble');
         this.nodeBubble2 = document.createElement("div");
         this.nodeBubble2.setAttribute('id', 'bubble2');
+        this.shadow = document.createElement("div");
+        this.shadow.setAttribute('id', 'shadowcorgi');
 
         this.parentNode = document.querySelector("#conteneur");
+        this.parentNode.append(this.shadow);
         this.parentNode.append(this.node);
         this.parentNode.append(this.nodeBubble);
         this.parentNode.append(this.nodeBubble2);
+        
 
         this.terrainNode = document.querySelector("#terrain");
 
@@ -86,11 +90,16 @@ export default class Corgi{
         this.ybubble = this.y - 115;
         this.xbubble2 = this.x + 110;
         this.ybubble2 = this.y - 15;
+        this.xshadow = this.x;
+        this.yshadow = this.y + 80;
 
         this.nodeBubble.style.top = this.ybubble + "px";
         this.nodeBubble.style.left = this.xbubble + "px";
         this.nodeBubble2.style.top = this.ybubble2 + "px";
         this.nodeBubble2.style.left = this.xbubble2 + "px";
+        this.shadow.style.top = this.yshadow + "px";
+        this.shadow.style.left = this.xshadow + "px";
+
         this.corgi.tick(this.x, this.y);
         return true;
     }
