@@ -1,3 +1,7 @@
+window.addEventListener("load", () => {
+
+})
+
 const applyStyles = iframe => {
 	let styles = {
 		fontColor : "#333",
@@ -19,24 +23,36 @@ const applyStyles = iframe => {
 }
 window.applyStyles = applyStyles;
 
-let room = document.querySelectorAll(".roomtype");
+let room = [];
+let training = document.querySelector("#training");
+let pvp = document.querySelector("#pvp");
+room.push(training);
+room.push(pvp);
 
-room.onclick = e => {
-	console.log("HELLO");
-	let roomType = e.innerHTML;
-	let formData = new FormData();
-	formData.append("typeOfRoom", roomType)
-	fetch("ajax.php", {
-	method: "POST",
-	body: formData
-	})
-	.then(response => response.json())
-	.then(result => {
-		if(result == "JOINED_TRAINING"){
-			console.log("you made it work? Really?");
-		}
+room.forEach(element => {
+	element.onclick = e => {
+		let roomType = element.innerHTML;
+		let formData = new FormData();
+		formData.append("typeOfRoom", roomType)
+		fetch("ajax.php", {
+		method: "POST",
+		body: formData
+		})
+		.then(response => response.json())
+		.then(result => {
+			if(result == "JOINED_TRAINING"){
+				console.log("you made it work? Really?");
+				window.location.href = "./jeu.php"
+			}
+			if(result == "JOINED_PVP"){
+				console.log("Joining pvp");
+			}
+			if(result == "CREATED_PVP"){
+				console.log("creating pvp");
+			}
+		})
+	}
+});
 
-	})
-}
 
 

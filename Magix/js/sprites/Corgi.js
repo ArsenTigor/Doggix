@@ -280,7 +280,7 @@ export default class Corgi{
                 break;
             case 5:
                 this.idleSitRight();
-            break;
+                break;
         }
     }
 }

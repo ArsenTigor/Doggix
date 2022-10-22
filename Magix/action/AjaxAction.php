@@ -9,11 +9,23 @@
 
         protected function executeAction() {
             $result = "";
-            if(isset($_POST["typeOfRoom"])){
+            if(!empty($_POST["typeOfRoom"])){
                 $data = [];
                 $data["key"] = $_SESSION["key"];
                 if($_POST["typeOfRoom"] == "TRAINING"){
                     $data["type"] = "TRAINING";
+                    $result = parent::callAPI("games/auto-match", $data);
+                }                
+                else if($_POST["typeOfRoom"] == "PVP"){
+                    $data["type"] = "PVP";
+                    $result = parent::callAPI("games/auto-match", $data);
+                }
+                else if($_POST["typeOfRoom"] == "STANDARD"){
+                    $data["type"] = "STANDARD";
+                    $result = parent::callAPI("games/auto-match", $data);
+                }
+                else if($_POST["typeOfRoom"] == "COOP"){
+                    $data["type"] = "COOP";
                     $result = parent::callAPI("games/auto-match", $data);
                 }
             }
