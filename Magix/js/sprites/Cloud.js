@@ -23,7 +23,7 @@ export default class Cloud{
         this.separation = document.querySelector("#terrain");
 
         this.x = -100;
-        this.y = Math.random()*300;
+        this.y = Math.random()*400 - 100;
         this.node.style.top = this.y + "px";
         this.node.style.left = this.x + "px";
         

@@ -90,7 +90,7 @@ export default class Corgi{
         this.ybubble = this.y - 115;
         this.xbubble2 = this.x + 110;
         this.ybubble2 = this.y - 15;
-        this.xshadow = this.x;
+        this.xshadow = this.x + 10;
         this.yshadow = this.y + 80;
 
         this.nodeBubble.style.top = this.ybubble + "px";
@@ -111,6 +111,7 @@ export default class Corgi{
         this.targetX = posXBall;
         this.targetY = posYBall;
         let distance  =  Math.sqrt((posXBall - this.x)*(posXBall - this.x) + (posYBall - this.y)* (posYBall - this.y))
+
 
         if(distance < 400){
             this.vitX = Math.ceil(Math.abs((posXBall - this.x) / 2000));
@@ -257,4 +258,29 @@ export default class Corgi{
         this.corgi.changeMinMaxInterval(0, 7)
     }
 
+    idleRand(){
+        let idleChoice = Math.floor(Math.random() * 6);
+        this.startIdle();
+        this.stopChaseBall();
+        switch(idleChoice){
+            case 0:
+                this.idleLeft1();
+                break;
+            case 1:
+                this.idleLeft2();
+                break;
+            case 2:
+                this.idleRight1();
+                break;
+            case 3:
+                this.idleRight2();
+                break;
+            case 4:
+                this.idleSitLeft();
+                break;
+            case 5:
+                this.idleSitRight();
+            break;
+        }
+    }
 }

@@ -73,7 +73,7 @@
 }
 
 #shadowcorgi {
-    width: 140px;
+    width: 130px;
     height: 30px;
     background: gray;
     opacity: 0.5;
@@ -159,18 +159,18 @@
 }
 
 .cloud1{    
-    background-image: url(../img/cloud1.png);
-    background-size:contain;
+    background-image: url(../img/cloud3.gif);
+    background-size:cover;
     position: absolute;
-    width: 180px;
-    height: 90px;
+    width: 200px;
+    height: 186px;
 }
 .cloud2{    
-    background-image: url(../img/cloud2.png);
-    background-size:contain;
+    background-image: url(../img/cloud4.gif);
+    background-size:cover;
     position: absolute;
-    width: 180px;
-    height: 90px;
+    width: 240px;
+    height: 150px;
 }
 
 #indextop{

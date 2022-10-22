@@ -53,7 +53,6 @@ const tick = () => {
 		}
 	}
 
-
     if(ballSpriteList.length > 0){
         if (corgi.getX() == ballSpriteList[0].getX() - 75 && corgi.getY() == ballSpriteList[0].getY() - 75){
             ballSpriteList[0].deleteNode();
@@ -69,44 +68,11 @@ const tick = () => {
     }
     else{
         if (!corgi.isIdle()){
-            let idleChoice = Math.floor(Math.random() * 6);
-            switch(idleChoice){
-                case 0:
-                    corgi.idleLeft1();
-                    corgi.startIdle();
-                    corgi.stopChaseBall();
-                    break;
-                case 1:
-                    corgi.idleLeft2();
-                    corgi.startIdle();
-                    corgi.stopChaseBall();
-                    break;
-                case 2:
-                    corgi.idleRight1();
-                    corgi.startIdle();
-                    corgi.stopChaseBall();
-                    break;
-                case 3:
-                    corgi.idleRight2();
-                    corgi.startIdle();
-                    corgi.stopChaseBall();
-                    break;
-                case 4:
-                    corgi.idleSitLeft();
-                    corgi.startIdle();
-                    corgi.stopChaseBall();
-                    break;
-                case 5:
-                    corgi.idleSitRight();
-                    corgi.startIdle();
-                    corgi.stopChaseBall();
-                break;
+            corgi.idleRand();
             }
-        }
     }
     window.requestAnimationFrame(tick);
 }
-
 
 terrain.onclick = e => {
     if (e.pageY > terrain.offsetTop){
