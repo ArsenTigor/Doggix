@@ -9,7 +9,7 @@
 
         protected function executeAction() {
             $result = "";
-            if(!empty($_POST["typeOfRoom"])){
+            if(isset($_POST["typeOfRoom"])){
                 $data = [];
                 $data["key"] = $_SESSION["key"];
                 if($_POST["typeOfRoom"] == "TRAINING"){
@@ -29,7 +29,13 @@
                     $result = parent::callAPI("games/auto-match", $data);
                 }
             }
+
+            if(isset($_POST["username"])){
+                $data["username"] = !empty($_SESSION["username"]) ? $_SESSION["username"] : "hooman";
+                $result = $data["username"];
+            }
+
             return compact("result");
+
         }
-    
     }

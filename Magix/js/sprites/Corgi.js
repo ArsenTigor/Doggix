@@ -7,9 +7,6 @@ export default class Corgi{
         let refreshDelay = 150; //maison
         let loopColumn = true;
         let scale = 3;
-        
-
-        this.user = "hooman";
 
         this.node = document.createElement("div");
         this.node.setAttribute('id', 'corgi');
@@ -26,7 +23,6 @@ export default class Corgi{
         this.parentNode.append(this.node);
         this.parentNode.append(this.nodeBubble);
         this.parentNode.append(this.nodeBubble2);
-        
 
         this.terrainNode = document.querySelector("#terrain");
 
@@ -34,21 +30,40 @@ export default class Corgi{
         this.corgi.changeRow(3);
         this.corgi.changeMinMaxInterval(3, 8);
         
-        this.initialX = 50;
-        this.initialY = 50 + this.terrainNode.offsetTop;
-        this.x = this.initialX;
-        this.y = this.initialY;
+        this.x = 50;
+        this.y = 50 + this.terrainNode.offsetTop;
         this.chasingBall = false;
         this.idle = true;
         this.vitX = 0;
         this.vitY = 0;
         this.targetX = 1000;
         this.targetY = 1000;
+        
+        this.user = "???"
+        this.formData = new FormData();
+		this.formData.append("username", this.user)
+		fetch("ajax.php", {
+		method: "POST",
+		body: this.formData
+		})
+		.then(response => response.json())
+		.then(result => {
+			this.user =  result;
+		})
 
-
-
-        this.text = "<3" + this.user;
         setInterval(() => {
+            let randomText = Math.floor(Math.random() * 3);
+            switch(randomText){
+                case 0:
+                    this.text = "<3 " + this.user;
+                    break;
+                case 1:
+                    this.text = "woof woof";
+                    break;
+                case 2:
+                    this.text = "throw me the ball!";
+                    break;
+            }
             this.nodeBubble.innerText = this.text;
             this.nodeBubble.style.display = "flex";
             this.nodeBubble2.style.display = "flex";
@@ -75,7 +90,6 @@ export default class Corgi{
             this.x = this.x - this.vitX;
         }
         
-
         if(this.y < ajustedTargetY + 2 && this.y > ajustedTargetY - 2){
             this.y = ajustedTargetY;
         }
@@ -87,9 +101,9 @@ export default class Corgi{
         }
 
         this.xbubble = this.x + 100;
-        this.ybubble = this.y - 115;
+        this.ybubble = this.y - 170;
         this.xbubble2 = this.x + 110;
-        this.ybubble2 = this.y - 15;
+        this.ybubble2 = this.y - 35;
         this.xshadow = this.x + 10;
         this.yshadow = this.y + 80;
 
@@ -104,14 +118,11 @@ export default class Corgi{
         return true;
     }
 
-
     setSpeed(posXBall, posYBall){    
         
-
         this.targetX = posXBall;
         this.targetY = posYBall;
         let distance  =  Math.sqrt((posXBall - this.x)*(posXBall - this.x) + (posYBall - this.y)* (posYBall - this.y))
-
 
         if(distance < 400){
             this.vitX = Math.ceil(Math.abs((posXBall - this.x) / 2000));

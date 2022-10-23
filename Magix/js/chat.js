@@ -1,7 +1,3 @@
-window.addEventListener("load", () => {
-
-})
-
 const applyStyles = iframe => {
 	let styles = {
 		fontColor : "#333",
