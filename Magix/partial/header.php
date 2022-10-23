@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/<?= $pageName?>.css">
     <script type="module" src="js/<?= $pageName?>.js"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
 
 </head>
