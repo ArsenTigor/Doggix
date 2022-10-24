@@ -52,7 +52,7 @@ export default class Corgi{
 		})
 
         setInterval(() => {
-            let randomText = Math.floor(Math.random() * 3);
+            let randomText = Math.floor(Math.random() * 4);
             switch(randomText){
                 case 0:
                     this.text = "<3 " + this.user;
@@ -61,7 +61,10 @@ export default class Corgi{
                     this.text = "woof woof";
                     break;
                 case 2:
-                    this.text = "throw me the ball!";
+                    this.text = "throw me the ball";
+                    break;
+                case 3:
+                    this.text = "snackos plz";
                     break;
             }
             this.nodeBubble.innerText = this.text;
