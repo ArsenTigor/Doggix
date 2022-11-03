@@ -14,9 +14,18 @@
 <div id="conteneurmain">
 
     <div id="opponentzone">
-        <div class="stats"></div>
+        <div class="stats">
+            <div id="opponentlife">LIFE</div>
+            <div id="opponentenergy">ENERGY </div>
+            <div id="opponentcardleft">CARD LEFT</div>
+        </div>
+
         <div id="opponentavatar"></div>
-        <div></div>
+
+        <div class="stats2">
+            <div id="opponentname">OPPONENT NAME</div>
+            <div id="opponentclass">OPPONENT CLASS</div>
+        </div>
     </div>
 
     <div id="playzone">
@@ -40,9 +49,9 @@
 
     <div id="playerzone">
         <div class="stats">
-            <div class="life">LIFE</div>
-            <div class="energy"> </div>
-            <div class="cardleft"></div>
+            <div id="playerlife">LIFE</div>
+            <div id="playerenergy">ENERGY </div>
+            <div id="playercardleft">CARD LEFT</div>
         </div>
         <div id="playerhand" class="cardzone">
             <div class="card">TEST</div>
