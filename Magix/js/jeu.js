@@ -7,8 +7,17 @@ const state = () => {
 .then(data => {
     console.log(data); // contient les cartes/état du jeu.
 
-    let life = data
-    document.querySelector("#playerlife").innerHTML()
+
+    document.querySelector("#playerlife").innerHTML = data.hp;
+    document.querySelector("#playerenergy").innerHTML = data.mp
+    document.querySelector("#playercardleft").innerHTML = data.hand.length
+    document.querySelector("#opponentlife").innerHTML = data.opponent.hp
+    document.querySelector("#opponentenergy").innerHTML = data.opponent.mp
+    document.querySelector("#opponentcardleft").innerHTML = data.opponent.remainingCardsCount
+    document.querySelector("#opponentname").innerHTML = data.opponent.username
+    document.querySelector("#opponentclass").innerHTML = data.opponent.heroClass
+
+    
 
 
 
