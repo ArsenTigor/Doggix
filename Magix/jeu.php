@@ -32,16 +32,8 @@
         <div id="leftplayzone">TIMER</div>
         <div id="opponentfield" class="cardzone">
             <div class="card">TEST</div>
-            <div class="card">TEST</div>
-            <div class="card">TEST</div>
-            <div class="card">TEST</div>
-            <div class="card">TEST</div>
         </div>
         <div id="playerfield" class="cardzone">
-            <div class="card">TEST</div>
-            <div class="card">TEST</div>
-            <div class="card">TEST</div>
-            <div class="card">TEST</div>
             <div class="card">TEST</div>
         </div>
         <div id="rightplayzone">TIMER</div>
@@ -54,14 +46,19 @@
             <div id="playercardleft">CARD LEFT</div>
         </div>
         <div id="playerhand" class="cardzone">
-            <div class="card">TEST</div>
-            <div class="card">TEST</div>
-            <div class="card">TEST</div>
-            <div class="card">TEST</div>
-            <div class="card">TEST</div>
-            <div class="card">TEST</div>
-            <div class="card">TEST</div>
-            <div class="card">TEST</div>
+            <div class="card">
+                <div class="cardimage"></div>
+                <div class="carddesciption"></div>
+                <div></div>
+            </div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
         </div>
         <div id="menu">
             <div>Hero Power</div>

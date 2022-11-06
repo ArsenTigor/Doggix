@@ -12,7 +12,7 @@
 
 #opponentzone{
     background-color: blue;
-    height: 25%;
+    height: 10%;
     display:flex;
     flex-direction: row;
     justify-content: center;
@@ -21,13 +21,13 @@
 
 #playerzone{
     background-color: darkolivegreen;
-    height: 25%;
+    height: 30%;
     display:flex;
     flex-direction: row;
 }
 
 #menu{
-    width: 200px;
+    width: 175px;
     height: 100%;
     border: 1px solid black;
     display: flex;
@@ -37,7 +37,7 @@
 }
 
 .stats{
-    width: 200px;
+    width: 175px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -46,7 +46,7 @@
 }
 
 .stats2{
-    width: 200px;
+    width: 175px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -66,9 +66,9 @@
 
 #playzone{
     background-color: crimson;
-    height: 50%;
+    height: 60%;
     display: grid;
-    grid-template-columns: 200px 1fr 200px;
+    grid-template-columns: 175px 1fr 175px;
     grid-template-areas: 
         "leftfield opponentfield rightfield"
         "leftfield playerfield rightfield";
@@ -94,13 +94,6 @@
     grid-area: leftfield;
 }
 
-.card{
-    height: 175px;
-    width: 125px;
-    border: 1px solid black;
-    text-align: center;
-    margin: 0px 10px;
-}
 
 #opponentavatar{
     height: 100%;
@@ -111,3 +104,31 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.card{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    height: 200px;
+    width: 145px;
+    border: 3px solid black;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0px 10px;
+}
+
+.cardimage{
+    height: 55%;
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+.carddescription{
+    height: 45%;
+    width: 100%;
+}
+
+
+
+
+
