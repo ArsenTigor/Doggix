@@ -1,3 +1,4 @@
+import Card from './jeu/Card.js';
 import Hand from './jeu/Hand.js';
 
 let tabCardPlayer = new Hand();
@@ -23,6 +24,8 @@ const state = () => {
         document.querySelector("#opponentclass").innerHTML = data.opponent.heroClass;
     }
 
+    let test = new Card(data);
+
     setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     })
 }
@@ -33,7 +36,7 @@ window.addEventListener("load", () => {
 });
 
 const tick = () => {
-
+    document.querySelector("#playerhand")
 
     window.requestAnimationFrame(tick);
 }
