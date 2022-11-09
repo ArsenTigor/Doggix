@@ -45,20 +45,9 @@
             <div id="playerenergy">ENERGY </div>
             <div id="playercardleft">CARD LEFT</div>
         </div>
-        <div id="playerhand" class="cardzone">
-            <div class="card">
-                <div class="cardimage">
-                    <div class="cardstats">
-                        <div class="cardcost">10</div>
-                        <div class="cardattack">10</div>
-                        <div class="cardlife">10</div>
-                    </div>
-                </div>
-                <div class="carddesciption">LALALALLALALALALA</div>
-            </div>
-            <div class="card"></div>
 
-        </div>
+        <div id="playerhand" class="cardzone"></div>
+        
         <div id="menu">
             <div>Hero Power</div>
             <div>End turn</div>

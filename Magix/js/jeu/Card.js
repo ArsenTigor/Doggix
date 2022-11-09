@@ -2,6 +2,8 @@ export default class Card {
     constructor(data){
         this.data = data;
 
+        this.uid = this.data.uid;
+
         this.card = document.createElement("div");
         this.card.classList.add("card");
 
@@ -30,20 +32,15 @@ export default class Card {
 
         this.cardTop.append(this.cardStats)
 
-        //testing
-        this.cost.innerHTML = "10";
-        this.life.innerHTML = "10";
-        this.attack.innerHTML = "10";
-
-        this.test = document.querySelector("#playerhand");
-        this.test.append(this.card);
-
+        this.cost.innerHTML = data.cost;
+        this.life.innerHTML = data.hp;
+        this.attack.innerHTML = data.atk;
+        
     }
 
-    displayCard(){
-
+    removeMe(){
+        this.card.remove();
     }
-
 
     tick(){
 

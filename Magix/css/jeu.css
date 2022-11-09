@@ -27,7 +27,7 @@
 }
 
 #menu{
-    width: 175px;
+    width: var(--sides);
     height: 100%;
     border: 1px solid black;
     display: flex;
@@ -37,7 +37,7 @@
 }
 
 .stats{
-    width: 175px;
+    width: var(--sides);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -46,7 +46,7 @@
 }
 
 .stats2{
-    width: 175px;
+    width: var(--sides);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -68,7 +68,8 @@
     background-color: crimson;
     height: 60%;
     display: grid;
-    grid-template-columns: 175px 1fr 175px;
+    grid-template-columns: var(--sides) 1fr var(--sides);
+    grid-template-rows: 1fr 1fr;
     grid-template-areas: 
         "leftfield opponentfield rightfield"
         "leftfield playerfield rightfield";
@@ -110,7 +111,7 @@
     display:flex;
     flex-direction: column;
     height: 200px;
-    width: 145px;
+    width: 140px;
     border: 3px solid black;
     border-radius: 5px;
     text-align: center;
@@ -166,6 +167,10 @@
     word-wrap: break-word;
 }
 
+#playerhand>div:hover{
+    transition: 2s;
+    scale: 1.1;
+}
 
 
 

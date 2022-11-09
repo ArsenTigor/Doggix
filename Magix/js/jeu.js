@@ -2,8 +2,11 @@ import Card from './jeu/Card.js';
 import Hand from './jeu/Hand.js';
 
 let tabCardPlayer = new Hand();
+let handChanged = false;
 let playerBoard = [];
 let opponentBoard = [];
+let nodeOpponentField = document.querySelector("#opponentfield");
+let nodePlayerField = document.querySelector("#playerfield");
 
 const state = () => {
     fetch("ajax-state.php", {   // Il faut créer cette page et son contrôleur appelle 
@@ -22,9 +25,42 @@ const state = () => {
         document.querySelector("#opponentcardleft").innerHTML = data.opponent.remainingCardsCount;
         document.querySelector("#opponentname").innerHTML = data.opponent.username;
         document.querySelector("#opponentclass").innerHTML = data.opponent.heroClass;
+
+
+        //Update les cartes sur les board
+        playerBoard = data.board;
+        opponentBoard = data.opponent.board;
+        nodePlayerField.innerHTML = "";
+        nodeOpponentField.innerHTML = "";
+        playerBoard.forEach(e => {
+            card = new Card(e)
+            nodePlayerField.append(card.card)
+        });
+        opponentBoard.forEach(e => {
+            let card = new Card(e)
+            nodeOpponentField.append(card.card)
+        });
+
+        //Pige de carte
+        data.hand.forEach(e => {
+            if(tabCardPlayer.isNewCard(e.uid)){
+                tabCardPlayer.addCard(new Card(e))
+                handChanged = true;
+            }
+        });
+
+        //En cas de discard de l'opponent
+        if (tabCardPlayer.isHandSizeChanged(data.hand)){ 
+            handChanged = true;
+        }
+  
+        //Update la main s'il y a eut des changement
+        if (handChanged == true){
+            handChanged = false;
+            tabCardPlayer.updateHand();
+        }
     }
 
-    let test = new Card(data);
 
     setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     })
