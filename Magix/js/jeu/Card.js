@@ -45,4 +45,5 @@ export default class Card {
     tick(){
 
     }
+
 }

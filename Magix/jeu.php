@@ -49,8 +49,9 @@
         <div id="playerhand" class="cardzone"></div>
         
         <div id="menu">
-            <div>Hero Power</div>
-            <div>End turn</div>
+            <div id="heropower">Hero Power</div>
+            <div id="endturn">End turn</div>
+            <div id="surrender">Surrender</div>
         </div>
     </div>
 

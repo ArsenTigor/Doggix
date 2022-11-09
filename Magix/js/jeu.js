@@ -7,6 +7,10 @@ let playerBoard = [];
 let opponentBoard = [];
 let nodeOpponentField = document.querySelector("#opponentfield");
 let nodePlayerField = document.querySelector("#playerfield");
+let playUID;
+let attackUID;
+let targerUID;
+
 
 const state = () => {
     fetch("ajax-state.php", {   // Il faut créer cette page et son contrôleur appelle 
@@ -35,6 +39,10 @@ const state = () => {
         playerBoard.forEach(e => {
             card = new Card(e)
             nodePlayerField.append(card.card)
+
+            card.card.onclick = e => {
+                
+            }
         });
         opponentBoard.forEach(e => {
             let card = new Card(e)
@@ -66,14 +74,54 @@ const state = () => {
     })
 }
 
+document.querySelector("#endturn").onclick = e => {
+    let formData = new FormData();
+    formData.append("menu", "endturn")
+    fetch("ajax-jeu.php", {
+    method: "POST",
+    body: formData
+    })
+    .then(response => response.json())
+    .then(result => {
+    })
+}
+
+document.querySelector("#surrender").onclick = e => {
+    let formData = new FormData();
+    formData.append("menu", "surrender")
+    fetch("ajax-jeu.php", {
+    method: "POST",
+    body: formData
+    })
+    .then(response => response.json())
+    .then(result => {
+    })
+}
+
+document.querySelector("#heropower").onclick = e => {
+    let formData = new FormData();
+    formData.append("menu", "heropower")
+    fetch("ajax-jeu.php", {
+    method: "POST",
+    body: formData
+    })
+    .then(response => response.json())
+    .then(result => {
+    })
+}
+
+
+
+
+
 window.addEventListener("load", () => {
     setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
-    tick();
+    // tick();
 });
 
-const tick = () => {
-    document.querySelector("#playerhand")
+// const tick = () => {
+//     document.querySelector("#playerhand")
 
-    window.requestAnimationFrame(tick);
-}
+//     window.requestAnimationFrame(tick);
+// }
 
