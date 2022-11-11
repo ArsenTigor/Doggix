@@ -9,7 +9,6 @@ export default class Hand {
         this.hand.push(card);
     }
 
-
     isNewCard(cardId){
         let newCard = true;
 
@@ -35,6 +34,15 @@ export default class Hand {
             return true;
         }
     }
+
+    // updateStat(handapi){
+    //     this.hand.forEach(e => {
+    //         if (e.uid.includes(handapi)
+            
+    //     });
+    // }
+    
+
 
     updateHand(){
         this.parentNode.innerHTML = "";

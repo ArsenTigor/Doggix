@@ -37,11 +37,10 @@ const state = () => {
         nodePlayerField.innerHTML = "";
         nodeOpponentField.innerHTML = "";
         playerBoard.forEach(e => {
-            card = new Card(e)
+            let card = new Card(e)
             nodePlayerField.append(card.card)
-
             card.card.onclick = e => {
-                
+                /////////Ajouter call api pour attack
             }
         });
         opponentBoard.forEach(e => {
@@ -52,7 +51,13 @@ const state = () => {
         //Pige de carte
         data.hand.forEach(e => {
             if(tabCardPlayer.isNewCard(e.uid)){
-                tabCardPlayer.addCard(new Card(e))
+                let card =  new Card(e)
+
+                card.card.onclick = e => {
+                    ///////mettre call api pour jouer une carte
+                }
+
+                tabCardPlayer.addCard(card)
                 handChanged = true;
             }
         });
