@@ -35,6 +35,12 @@
                     $data["uid"] = $_POST["gameUID"];
                     $result = parent::callAPI("games/action", $data);
                 }
+                if($_POST["game"] == "attack"){
+                    $data["type"] = "ATTACK";
+                    $data["uid"] = $_POST["gameUID"];
+                    $data["targetuid"] = $_POST["gameTarget"];
+                    $result = parent::callAPI("games/action", $data);
+                }
             }
 
 

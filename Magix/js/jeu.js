@@ -1,5 +1,4 @@
 import Card from './jeu/Card.js';
-import Hand from './jeu/Hand.js';
 import Field from './jeu/Field.js'
 
 let tabCardPlayer = new Field("playerhand");
@@ -95,8 +94,7 @@ const state = () => {
             opponentBoard.updateStatsCardsInField(data.opponent.board);
         }
 
-
-
+        //ON CLICK FOR ALL CARDS
         tabCardPlayer.field.forEach(element => {
             element.card.onclick = e => {
                 let formData = new FormData();
@@ -113,29 +111,48 @@ const state = () => {
             }
         });
 
-
         playerBoard.field.forEach(element => {
             element.card.onclick = e => {
                 ///////Attacker
                 console.log("CLICKED ON PLAYER CARD")
-                this.card.classList.add("glow")
+                element.card.classList.add("glow")
+                attackUID = element.uid;
             }
 
-            attackUID = element.uid;
 
         });
         
-
         opponentBoard.field.forEach(element => {
             element.card.onclick = e => {
                 ///////Attacked
                 console.log("CLICKED ON OPPOENENT CARD")
-                
+                element.card.classList.add("glow")
+                targetUID = element.uid;
             }
             
-            targetUID = element.uid;
 
         });
+
+
+        if (targetUID != -1 && attackUID != -1){
+
+            let formData = new FormData();
+            formData.append("game", "attack")
+            formData.append("gameUID", attackUID)
+            formData.append("gameTarget", targetUID)
+            fetch("ajax-jeu.php", {
+            method: "POST",
+            body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+            })
+
+
+            targetUID = -1
+            attackUID = -1
+        }
 
 
 

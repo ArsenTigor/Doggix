@@ -41,12 +41,12 @@ export default class Hand {
     }
 
     updateStatsCardsInField(api){
-        this.field.forEach(eField => {
+        this.field.forEach(card => {
             api.forEach(eApi => {
-                if(eField.uid == eApi.uid){
-                    eField.hp = eApi.hp;
-                    eField.cost = eApi.cost;
-                    eField.atk = eApi.atk;
+                if(card.uid == eApi.uid){
+                    card.hp.innerHTML = eApi.hp;
+                    card.cost.innerHTML = eApi.cost;
+                    card.atk.innerHTML = eApi.atk;
                 }
             });
         });

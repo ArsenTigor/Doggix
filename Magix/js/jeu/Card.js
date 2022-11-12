@@ -18,29 +18,30 @@ export default class Card {
 
         this.cost = document.createElement("div");
         this.cost.classList.add("cardcost");
-        this.attack = document.createElement("div");
-        this.attack.classList.add("cardattack");
-        this.life = document.createElement("div");
-        this.life.classList.add("cardlife");
+        this.atk = document.createElement("div");
+        this.atk.classList.add("cardattack");
+        this.hp = document.createElement("div");
+        this.hp.classList.add("cardlife");
 
         this.card.append(this.cardTop);
         this.card.append(this.cardBottom);
 
         this.cardStats.append(this.cost);
-        this.cardStats.append(this.attack);
-        this.cardStats.append(this.life);
+        this.cardStats.append(this.atk);
+        this.cardStats.append(this.hp);
 
         this.cardTop.append(this.cardStats)
 
         this.cost.innerHTML = data.cost;
-        this.life.innerHTML = data.hp;
-        this.attack.innerHTML = data.atk;
+        this.hp.innerHTML = data.hp;
+        this.atk.innerHTML = data.atk;
 
     }
 
     removeMe(){
         this.card.remove();
     }
+
 
     tick(){
 
