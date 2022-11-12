@@ -106,7 +106,7 @@ const state = () => {
             }
         });
 
-        if (opponentBoard.isFieldSizeChanged(data.board)){ 
+        if (opponentBoard.isFieldSizeChanged(data.opponent.board)){ 
             opponentFieldChanged = true;
         }
 
@@ -115,7 +115,7 @@ const state = () => {
             opponentBoard.updateField();
         } 
         else{
-            opponentBoard.updateStatsCardsInField(data.board);
+            opponentBoard.updateStatsCardsInField(data.opponent.board);
         }
 
 
