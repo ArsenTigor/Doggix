@@ -118,8 +118,6 @@ const state = () => {
                 element.card.classList.add("glow")
                 attackUID = element.uid;
             }
-
-
         });
         
         opponentBoard.field.forEach(element => {
@@ -129,8 +127,6 @@ const state = () => {
                 element.card.classList.add("glow")
                 targetUID = element.uid;
             }
-            
-
         });
 
 
@@ -161,8 +157,8 @@ const state = () => {
 
     setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     })
-}
 
+}
 
 document.querySelector("#endturn").onclick = e => {
     let formData = new FormData();
@@ -204,5 +200,7 @@ document.querySelector("#heropower").onclick = e => {
 window.addEventListener("load", () => {
     setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
 });
+
+
 
 
