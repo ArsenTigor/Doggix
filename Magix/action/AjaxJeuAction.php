@@ -27,10 +27,14 @@
                 }
             }
 
-            if(isset($_POST["play"])){
+            else if(isset($_POST["game"])){
                 $data = [];
                 $data["key"] = $_SESSION["key"];
-                
+                if($_POST["game"] == "play"){
+                    $data["type"] = "PLAY";
+                    $data["uid"] = $_POST["gameUID"];
+                    $result = parent::callAPI("games/action", $data);
+                }
             }
 
 

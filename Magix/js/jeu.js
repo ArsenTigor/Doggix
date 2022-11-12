@@ -1,15 +1,18 @@
 import Card from './jeu/Card.js';
 import Hand from './jeu/Hand.js';
+import Field from './jeu/Field.js'
 
 let tabCardPlayer = new Hand();
+let playerBoard = new Field("playerfield");
+let opponentBoard = new Field("opponentfield");
 let handChanged = false;
-let playerBoard = [];
-let opponentBoard = [];
+let playerFieldChanged = false;
+let opponentFieldChanged = false;
 let nodeOpponentField = document.querySelector("#opponentfield");
 let nodePlayerField = document.querySelector("#playerfield");
-let playUID;
-let attackUID;
-let targerUID;
+let playUID = -1;
+let attackUID = -1;
+let targetUID = -1;
 
 
 const state = () => {
@@ -32,46 +35,131 @@ const state = () => {
 
 
         //Update les cartes sur les board
-        playerBoard = data.board;
-        opponentBoard = data.opponent.board;
-        nodePlayerField.innerHTML = "";
-        nodeOpponentField.innerHTML = "";
-        playerBoard.forEach(e => {
-            let card = new Card(e)
-            nodePlayerField.append(card.card)
-            card.card.onclick = e => {
-                /////////Ajouter call api pour attack
-            }
-        });
-        opponentBoard.forEach(e => {
-            let card = new Card(e)
-            nodeOpponentField.append(card.card)
-        });
+        // playerBoard = data.board;
+        // opponentBoard = data.opponent.board;
+        // nodePlayerField.innerHTML = "";
+        // nodeOpponentField.innerHTML = "";
+        // playerBoard.forEach(e => {
+        //     let card = new Card(e)
+        //     nodePlayerField.append(card.card)
+        //     card.card.onclick = e => {
+        //         /////////Ajouter call api pour attack
+        //     }
+        // });
+        // opponentBoard.forEach(e => {
+        //     let card = new Card(e)
+        //     nodeOpponentField.append(card.card)
+        // });
+
 
         //Pige de carte
         data.hand.forEach(e => {
             if(tabCardPlayer.isNewCard(e.uid)){
                 let card =  new Card(e)
-
-                card.card.onclick = e => {
-                    ///////mettre call api pour jouer une carte
-                }
-
                 tabCardPlayer.addCard(card)
                 handChanged = true;
             }
         });
 
+
         //En cas de discard de l'opponent
         if (tabCardPlayer.isHandSizeChanged(data.hand)){ 
             handChanged = true;
         }
-  
+
         //Update la main s'il y a eut des changement
         if (handChanged == true){
             handChanged = false;
             tabCardPlayer.updateHand();
+        } 
+        else{
+            tabCardPlayer.updateStatsCardsInHand(data.hand);
         }
+
+
+        data.board.forEach(e => {
+            if(playerBoard.isNewCard(e.uid)){
+                let card =  new Card(e)
+                playerBoard.addCard(card)
+                playerFieldChanged = true;
+            }
+        });
+
+        if (playerBoard.isFieldSizeChanged(data.board)){ 
+            playerFieldChanged = true;
+        }
+
+        if (playerFieldChanged == true){
+            playerFieldChanged = false;
+            playerBoard.updateField();
+        } 
+        else{
+            playerBoard.updateStatsCardsInField(data.board);
+        }
+
+
+        data.opponent.board.forEach(e => {
+            if(opponentBoard.isNewCard(e.uid)){
+                let card =  new Card(e)
+                opponentBoard.addCard(card)
+                opponentFieldChanged = true;
+            }
+        });
+
+        if (opponentBoard.isFieldSizeChanged(data.board)){ 
+            opponentFieldChanged = true;
+        }
+
+        if (opponentFieldChanged == true){
+            opponentFieldChanged = false;
+            opponentBoard.updateField();
+        } 
+        else{
+            opponentBoard.updateStatsCardsInField(data.board);
+        }
+
+
+
+        tabCardPlayer.hand.forEach(element => {
+            element.card.onclick = e => {
+                let formData = new FormData();
+                formData.append("game", "play")
+                formData.append("gameUID", element.uid)
+                fetch("ajax-jeu.php", {
+                method: "POST",
+                body: formData
+                })
+                .then(response => response.json())
+                .then(result => {
+                    console.log(result)
+                })
+            }
+        });
+
+        playerBoard.field.forEach(element => {
+            element.card.onclick = e => {
+                ///////Attacker
+                console.log("CLICKED ON PLAYER CARD")
+                this.card.classList.add("glow")
+            }
+
+            attackUID = element.uid;
+
+        });
+        
+        opponentBoard.field.forEach(element => {
+            element.card.onclick = e => {
+                ///////Attacked
+                console.log("CLICKED ON OPPOENENT CARD")
+                
+            }
+            
+            targetUID = element.uid;
+
+        });
+
+
+
     }
 
 
@@ -121,12 +209,6 @@ document.querySelector("#heropower").onclick = e => {
 
 window.addEventListener("load", () => {
     setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
-    // tick();
 });
 
-// const tick = () => {
-//     document.querySelector("#playerhand")
-
-//     window.requestAnimationFrame(tick);
-// }
 

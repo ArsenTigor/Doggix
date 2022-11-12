@@ -1,3 +1,5 @@
+import Card from "./Card";
+
 export default class Hand {
     constructor(){
         this.hand = [];
@@ -29,19 +31,23 @@ export default class Hand {
         else {
             this.hand = []
             handapi.forEach(element => {
-                this.addCard(element);
+                this.addCard(new Card(element, "hand"));
             });
             return true;
         }
     }
 
-    // updateStat(handapi){
-    //     this.hand.forEach(e => {
-    //         if (e.uid.includes(handapi)
-            
-    //     });
-    // }
-    
+    updateStatsCardsInHand(handapi){
+        this.hand.forEach(eHand => {
+            handapi.forEach(eApi => {
+                if(eHand.uid == eApi.uid){
+                    eHand.hp = eApi.hp;
+                    eHand.cost = eApi.cost;
+                    eHand.atk = eApi.atk;
+                }
+            });
+        });
+    }
 
 
     updateHand(){

@@ -35,7 +35,7 @@ export default class Card {
         this.cost.innerHTML = data.cost;
         this.life.innerHTML = data.hp;
         this.attack.innerHTML = data.atk;
-        
+
     }
 
     removeMe(){
@@ -45,5 +45,6 @@ export default class Card {
     tick(){
 
     }
+
 
 }
