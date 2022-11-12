@@ -34,7 +34,7 @@ export default class Hand {
         else {
             this.field = []
             api.forEach(element => {
-                this.addCard(new Card(element, this.type));
+                this.addCard(new Card(element));
             });
             return true;
         }

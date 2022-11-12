@@ -2,15 +2,14 @@ import Card from './jeu/Card.js';
 import Hand from './jeu/Hand.js';
 import Field from './jeu/Field.js'
 
-let tabCardPlayer = new Hand();
+let tabCardPlayer = new Field("playerhand");
 let playerBoard = new Field("playerfield");
 let opponentBoard = new Field("opponentfield");
 let handChanged = false;
 let playerFieldChanged = false;
 let opponentFieldChanged = false;
-let nodeOpponentField = document.querySelector("#opponentfield");
-let nodePlayerField = document.querySelector("#playerfield");
-let playUID = -1;
+
+
 let attackUID = -1;
 let targetUID = -1;
 
@@ -34,25 +33,7 @@ const state = () => {
         document.querySelector("#opponentclass").innerHTML = data.opponent.heroClass;
 
 
-        //Update les cartes sur les board
-        // playerBoard = data.board;
-        // opponentBoard = data.opponent.board;
-        // nodePlayerField.innerHTML = "";
-        // nodeOpponentField.innerHTML = "";
-        // playerBoard.forEach(e => {
-        //     let card = new Card(e)
-        //     nodePlayerField.append(card.card)
-        //     card.card.onclick = e => {
-        //         /////////Ajouter call api pour attack
-        //     }
-        // });
-        // opponentBoard.forEach(e => {
-        //     let card = new Card(e)
-        //     nodeOpponentField.append(card.card)
-        // });
-
-
-        //Pige de carte
+        //HAND
         data.hand.forEach(e => {
             if(tabCardPlayer.isNewCard(e.uid)){
                 let card =  new Card(e)
@@ -60,23 +41,19 @@ const state = () => {
                 handChanged = true;
             }
         });
-
-
-        //En cas de discard de l'opponent
-        if (tabCardPlayer.isHandSizeChanged(data.hand)){ 
+        if (tabCardPlayer.isFieldSizeChanged(data.hand)){ 
             handChanged = true;
         }
 
-        //Update la main s'il y a eut des changement
         if (handChanged == true){
             handChanged = false;
-            tabCardPlayer.updateHand();
+            tabCardPlayer.updateField();
         } 
         else{
-            tabCardPlayer.updateStatsCardsInHand(data.hand);
+            tabCardPlayer.updateStatsCardsInField(data.hand);
         }
 
-
+        //PLAYERFIELD
         data.board.forEach(e => {
             if(playerBoard.isNewCard(e.uid)){
                 let card =  new Card(e)
@@ -97,7 +74,7 @@ const state = () => {
             playerBoard.updateStatsCardsInField(data.board);
         }
 
-
+        //OPPONENTFIELD
         data.opponent.board.forEach(e => {
             if(opponentBoard.isNewCard(e.uid)){
                 let card =  new Card(e)
@@ -120,7 +97,7 @@ const state = () => {
 
 
 
-        tabCardPlayer.hand.forEach(element => {
+        tabCardPlayer.field.forEach(element => {
             element.card.onclick = e => {
                 let formData = new FormData();
                 formData.append("game", "play")
@@ -136,6 +113,7 @@ const state = () => {
             }
         });
 
+
         playerBoard.field.forEach(element => {
             element.card.onclick = e => {
                 ///////Attacker
@@ -147,6 +125,7 @@ const state = () => {
 
         });
         
+
         opponentBoard.field.forEach(element => {
             element.card.onclick = e => {
                 ///////Attacked
@@ -166,6 +145,7 @@ const state = () => {
     setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     })
 }
+
 
 document.querySelector("#endturn").onclick = e => {
     let formData = new FormData();
@@ -202,9 +182,6 @@ document.querySelector("#heropower").onclick = e => {
     .then(result => {
     })
 }
-
-
-
 
 
 window.addEventListener("load", () => {
