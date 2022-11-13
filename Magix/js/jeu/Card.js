@@ -40,7 +40,7 @@ export default class Card {
         this.mechanics = "";
         this.data.mechanics.forEach(element => {
             this.mechanics += element;
-            this.mechanics += "<br>"
+            this.mechanics += "<br><br>"
         });
 
         this.cardBottom.innerHTML = this.mechanics;
