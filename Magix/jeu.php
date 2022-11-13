@@ -31,10 +31,8 @@
     <div id="playzone">
         <div id="leftplayzone">TIMER</div>
         <div id="opponentfield" class="cardzone">
-            <div class="card">TEST</div>
         </div>
         <div id="playerfield" class="cardzone">
-            <div class="card">TEST</div>
         </div>
         <div id="rightplayzone">TIMER</div>
     </div>

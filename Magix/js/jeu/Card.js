@@ -35,6 +35,17 @@ export default class Card {
         this.cost.innerHTML = data.cost;
         this.hp.innerHTML = data.hp;
         this.atk.innerHTML = data.atk;
+        
+        
+        this.mechanics = "";
+        this.data.mechanics.forEach(element => {
+            this.mechanics += element;
+            this.mechanics += "<br>"
+        });
+
+        this.cardBottom.innerHTML = this.mechanics;
+        
+
 
     }
 

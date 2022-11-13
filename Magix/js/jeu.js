@@ -30,6 +30,7 @@ const state = () => {
         document.querySelector("#opponentcardleft").innerHTML = data.opponent.remainingCardsCount;
         document.querySelector("#opponentname").innerHTML = data.opponent.username;
         document.querySelector("#opponentclass").innerHTML = data.opponent.heroClass;
+        
 
 
         //HAND
@@ -196,6 +197,10 @@ document.querySelector("#heropower").onclick = e => {
     })
 }
 
+document.querySelector("#opponentavatar").onclick = e => {
+    targetUID = 0;
+    console.log("HELLO?")
+}
 
 window.addEventListener("load", () => {
     setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
