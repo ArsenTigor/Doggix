@@ -21,16 +21,36 @@ const state = () => {
 .then(data => {
     console.log(data); // contient les cartes/état du jeu.
 
+    if(data == "WAITING"){
+        
+    }
+
     if(data != "WAITING" && data != "LAST_GAME_WON" && data != "LAST_GAME_LOST"){
         document.querySelector("#playerlife").innerHTML = data.hp;
         document.querySelector("#playerenergy").innerHTML = data.mp;
-        document.querySelector("#playercardleft").innerHTML = data.hand.length;
+        document.querySelector("#playercardleft").innerHTML = data.hand.remainingCardsCount;
         document.querySelector("#opponentlife").innerHTML = data.opponent.hp;
         document.querySelector("#opponentenergy").innerHTML = data.opponent.mp;
         document.querySelector("#opponentcardleft").innerHTML = data.opponent.remainingCardsCount;
         document.querySelector("#opponentname").innerHTML = data.opponent.username;
         document.querySelector("#opponentclass").innerHTML = data.opponent.heroClass;
         document.querySelector("#timer").innerHTML = data.remainingTurnTime;
+        if(data.yourTurn == false){
+            document.querySelector("#currentplayer").innerHTML = data.opponent.username + "'s<br>turn";
+        }
+        else{
+            let user = "whateverrrrrrr"
+            let formData = new FormData();
+            formData.append("username", user)
+            fetch("ajax.php", {
+            method: "POST",
+            body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                document.querySelector("#currentplayer").innerHTML =  result + "'s<br>turn";
+            })
+        }
         
 
 

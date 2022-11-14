@@ -11,6 +11,15 @@
     require_once("partial/header.php");
 ?>
 
+<div id="waiting">
+    <div class="timeranimation"></div>
+    <div>WAITING</div>
+    <div class="timeranimation"></div>
+</div>
+<div id="gamewon"></div>
+<div id="gamelost"></div>
+
+
 <div id="conteneurmain">
 
     <div id="opponentzone">
@@ -35,9 +44,9 @@
         <div id="playerfield" class="cardzone">
         </div>
         <div id="rightplayzone">
+            <div id="currentplayer"></div>
             <div class="timeranimation"></div>
             <div id="timer"></div>
-            <div class="timeranimation"></div>
         </div>
     </div>
 
