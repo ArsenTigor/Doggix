@@ -34,7 +34,11 @@
         </div>
         <div id="playerfield" class="cardzone">
         </div>
-        <div id="rightplayzone">TIMER</div>
+        <div id="rightplayzone">
+            <div class="timeranimation"></div>
+            <div id="timer"></div>
+            <div class="timeranimation"></div>
+        </div>
     </div>
 
     <div id="playerzone">

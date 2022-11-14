@@ -30,6 +30,7 @@ const state = () => {
         document.querySelector("#opponentcardleft").innerHTML = data.opponent.remainingCardsCount;
         document.querySelector("#opponentname").innerHTML = data.opponent.username;
         document.querySelector("#opponentclass").innerHTML = data.opponent.heroClass;
+        document.querySelector("#timer").innerHTML = data.remainingTurnTime;
         
 
 

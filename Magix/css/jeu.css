@@ -64,6 +64,10 @@
     background-color: rgba(128, 128, 128, 0.5);
 }
 
+#playerhand{
+    max-width: calc(100% - var(--sides) * 2);
+}
+
 #playzone{
     background-color: crimson;
     height: 60%;
@@ -89,9 +93,31 @@
 
 #rightplayzone{
     grid-area: rightfield;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-#rightplayzone{
+#rightplayzone>div {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Press Start 2P';
+    font-size: larger;
+
+}
+
+.timeranimation{
+    background-image: url(../img/hourglass.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain
+}
+
+#leftplayzone{
     grid-area: leftfield;
 }
 
