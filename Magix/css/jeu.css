@@ -216,7 +216,7 @@
 }
 
 .hoverme{
-    
+
 }
 
 .glow{
@@ -247,6 +247,13 @@
     background-size: contain;
 }
 
-
+#endturn{
+    width: 100px;
+    height: 80px;
+    background-image: url(../img/endturn.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 
 

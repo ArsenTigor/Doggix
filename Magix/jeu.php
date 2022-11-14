@@ -62,7 +62,7 @@
         
         <div id="menu">
             <div id="heropower"></div>
-            <div id="endturn">End turn</div>
+            <div id="endturn"></div>
             <div id="surrender">Surrender</div>
         </div>
     </div>
