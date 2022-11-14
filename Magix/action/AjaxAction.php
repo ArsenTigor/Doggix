@@ -32,6 +32,7 @@
 
             if(isset($_POST["username"])){
                 $data["username"] = !empty($_SESSION["username"]) ? $_SESSION["username"] : "hooman";
+                // localStorage.setItem = ("username", $data["username"]);
                 $result = $data["username"];
             }
 

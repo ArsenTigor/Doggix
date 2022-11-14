@@ -1,5 +1,5 @@
 import Card from './jeu/Card.js';
-import Field from './jeu/Field.js'
+import Field from './jeu/Field.js';
 
 let tabCardPlayer = new Field("playerhand");
 let playerBoard = new Field("playerfield");
@@ -22,13 +22,22 @@ const state = () => {
     console.log(data); // contient les cartes/état du jeu.
 
     if(data == "WAITING"){
-        
+        document.querySelector("#waiting").style.display = "flex";
     }
+    else if(data == "LAST_GAME_WON"){
+        document.querySelector("#gamewon").style.display = "flex";
+    }
+    else if(data == "LAST_GAME_LOST"){
+        document.querySelector("#gamelost").style.display = "flex";
+    }
+    else {
+        document.querySelector("#waiting").style.display = "none";
+        document.querySelector("#gamelost").style.display = "none";
+        document.querySelector("#gamewon").style.display = "none";
 
-    if(data != "WAITING" && data != "LAST_GAME_WON" && data != "LAST_GAME_LOST"){
         document.querySelector("#playerlife").innerHTML = data.hp;
         document.querySelector("#playerenergy").innerHTML = data.mp;
-        document.querySelector("#playercardleft").innerHTML = data.hand.remainingCardsCount;
+        document.querySelector("#playercardleft").innerHTML = data.remainingCardsCount;
         document.querySelector("#opponentlife").innerHTML = data.opponent.hp;
         document.querySelector("#opponentenergy").innerHTML = data.opponent.mp;
         document.querySelector("#opponentcardleft").innerHTML = data.opponent.remainingCardsCount;
@@ -37,9 +46,18 @@ const state = () => {
         document.querySelector("#timer").innerHTML = data.remainingTurnTime;
         if(data.yourTurn == false){
             document.querySelector("#currentplayer").innerHTML = data.opponent.username + "'s<br>turn";
+            attackUID = -1;
+            targetUID = -1;
+            opponentBoard.field.forEach(element => {
+                element.card.classList.remove("glow")
+            });
+            playerBoard.field.forEach(element => {
+                element.card.classList.remove("glow")
+            });
+            
         }
         else{
-            let user = "whateverrrrrrr"
+            let user = ""
             let formData = new FormData();
             formData.append("username", user)
             fetch("ajax.php", {
@@ -51,9 +69,14 @@ const state = () => {
                 document.querySelector("#currentplayer").innerHTML =  result + "'s<br>turn";
             })
         }
+
+        if (data.heroPowerAlreadyUsed == true){
+            document.querySelector("#heropower").style.opacity = "0.5"
+        }
+        else {
+            document.querySelector("#heropower").style.opacity = "1"
+        }
         
-
-
         //HAND
         data.hand.forEach(e => {
             if(tabCardPlayer.isNewCard(e.uid)){
@@ -167,10 +190,20 @@ const state = () => {
                 console.log(result)
             })
 
+            opponentBoard.field.forEach(element => {
+                element.card.classList.remove("glow")
+            });
+            playerBoard.field.forEach(element => {
+                element.card.classList.remove("glow")
+            });
 
             targetUID = -1
             attackUID = -1
         }
+
+
+
+
 
 
 

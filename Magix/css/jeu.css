@@ -215,6 +215,10 @@
     scale: 1.1;
 }
 
+.hoverme{
+    
+}
+
 .glow{
     border: solid green 5px;
 }
@@ -222,9 +226,27 @@
 #waiting, #gamewon, #gamelost{
     height: 100%;
     width: 100%;
-    position: absolute;
-    z-index: 2;
-    display: hidden;
+    position:absolute;
+    z-index: 3;
+    background-color: darkgreen;
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
+
+#waiting{
+    display: flex;
+}
+
+#heropower{
+    width: 100px;
+    height: 100px;
+    background-image: url(../img/power.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
 
 
