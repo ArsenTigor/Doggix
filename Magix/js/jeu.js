@@ -37,7 +37,7 @@ const state = () => {
 
         document.querySelector("#playerlife").innerHTML = data.hp;
         document.querySelector("#playerenergy").innerHTML = data.mp;
-        document.querySelector("#playercardleft").innerHTML = data.remainingCardsCount;
+        document.querySelector("#playercardleft").innerHTML = "Cardleft<br>" + data.remainingCardsCount;
         document.querySelector("#opponentlife").innerHTML = data.opponent.hp;
         document.querySelector("#opponentenergy").innerHTML = data.opponent.mp;
         document.querySelector("#opponentcardleft").innerHTML = data.opponent.remainingCardsCount;

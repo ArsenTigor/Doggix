@@ -11,15 +11,12 @@
     require_once("partial/header.php");
 ?>
 
-
-
-<div id="conteneurmain">
-
-
     <div id="waiting">WAITING</div>
     <div id="gamewon">YOU WON</div>
     <div id="gamelost">YOU LOST</div>
 
+<div id="conteneurmain">
+    
     <div id="opponentzone">
         <div class="stats">
             <div id="opponentlife">LIFE</div>
@@ -35,24 +32,27 @@
         </div>
     </div>
 
-    <div id="playzone">
 
+    <div id="zone">
         <div id="leftplayzone">
             <div id="playercardleft"> PLAYER CARD LEFT</div>
+            <div id="deckpile"></div>
         </div>
-
+        
         <div id="opponentfield" class="cardzone"></div>
-
+        
+        <div id="spacer1"></div>
+        
         <div id="playerfield" class="cardzone"></div>
-
+        
         <div id="rightplayzone">
             <div id="currentplayer"></div>
             <div class="timeranimation"></div>
             <div id="timer"></div>
         </div>
-    </div>
-
-    <div id="playerzone">
+        
+        <div id="spacer2"></div>
+    
         <div class="stats">
             <div id="playerlife">LIFE</div>
             <div id="playerenergy">ENERGY </div>

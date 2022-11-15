@@ -1,13 +1,15 @@
 #conteneurmain{
     width: 100%;
     height: 100%;
-    background-color: aquamarine;
+    background-image: url(../img/grassbackground.png);
+    background-repeat: repeat;
     display:flex;
     flex-direction: column;
 }
 
 #conteneurmain > div{
     width: 100%;
+    overflow: hidden;
 }
 
 #opponentzone{
@@ -16,32 +18,6 @@
     display:flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-}
-
-#playerzone{
-    background-color: darkolivegreen;
-    height: 30%;
-    display:flex;
-    flex-direction: row;
-}
-
-#menu{
-    width: var(--sides);
-    height: 100%;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
-    align-items: center;
-}
-
-.stats{
-    width: var(--sides);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
     align-items: center;
 }
 
@@ -60,27 +36,36 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border:blueviolet solid 5px;
     background-color: rgba(128, 128, 128, 0.5);
 }
 
-#playerhand{
-    max-width: calc(100% - var(--sides) * 2);
-}
-
-#playzone{
-    background-color: crimson;
-    height: 60%;
+#zone{
+    height: 100%;
     display: grid;
     grid-template-columns: var(--sides) 1fr var(--sides);
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 0.1fr 1fr 1fr 0.1fr 1fr 1fr;
     grid-template-areas: 
         "leftfield opponentfield rightfield"
-        "leftfield playerfield rightfield";
+        "leftfield opponentfield rightfield"
+        "leftfield spacer1 rightfield"
+        "leftfield playerfield rightfield"
+        "leftstat playerfield menuoption"
+        "leftstat spacer2 menuoption"
+        "leftstat playerhand menuoption"
+        "leftstat playerhand menuoption";
+}
+#zone > div{
+    height:100%;
 }
 
-#playzone > div{
-    height:100%;
+#spacer1{
+    grid-area: spacer1;
+    background-color: rgb(138, 212, 79);
+}
+
+#spacer2{
+    grid-area: spacer2;
+    background-color: rgb(138, 212, 79);
 }
 
 #opponentfield{
@@ -91,11 +76,48 @@
     grid-area: playerfield;
 }
 
+#playerhand{
+    grid-area: playerhand;
+}
+
 #rightplayzone{
     grid-area: rightfield;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+#leftplayzone{
+    grid-area: leftfield;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+#menu{
+    grid-area: menuoption;
+    width: var(--sides);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.stats{
+    grid-area: leftstat;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.stats>div{
+    font-family: 'Press Start 2P';
 }
 
 #rightplayzone>div {
@@ -120,16 +142,12 @@
 }
 
 #currentplayer{
+    line-height: 1.5;
     font-size: smaller;
     word-wrap: break-word;
     word-break: break-all;
     text-align: center;
 }
-
-#leftplayzone{
-    grid-area: leftfield;
-}
-
 
 #opponentavatar{
     height: 100%;
@@ -215,8 +233,9 @@
     scale: 1.1;
 }
 
-.hoverme{
-
+.hoverme:hover{
+    transition: 2s;
+    scale: 1.1;
 }
 
 .glow{
@@ -239,8 +258,8 @@
 }
 
 #heropower{
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     background-image: url(../img/power.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -248,12 +267,51 @@
 }
 
 #endturn{
-    width: 100px;
-    height: 80px;
+    width: 140px;
+    height: 112px;
     background-image: url(../img/endturn.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 }
 
+
+.stats>div{
+    width: 120px;
+    height: 120px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+
+}
+
+#playerlife{
+    background-image: url(../img/heart.png);
+}
+
+#playerenergy{
+    background-image: url(../img/tennis-ball.png);
+}
+
+#playercardleft{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    font-family: 'Press Start 2P';
+    line-height: 1.5;
+}
+
+#deckpile{
+    width: 160px;
+    height: 220px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(../img/backcard.png);
+}
 
