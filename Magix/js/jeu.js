@@ -31,10 +31,7 @@ const state = () => {
 .then(data => {
     console.log(data); // contient les cartes/état du jeu.
 
-    if(ennemyQuoteFetched == false){
-        ennemyQuoteFetched = true;
-        lineList.push(data.opponent.welcomeText)
-    }
+
 
     document.querySelector("#opponentavatar").style.width = document.querySelector("#opponentavatar").offsetHeight + "px";
 
@@ -48,6 +45,12 @@ const state = () => {
         document.querySelector("#gamelost").style.display = "flex";
     }
     else {
+
+        if(ennemyQuoteFetched == false){
+            ennemyQuoteFetched = true;
+            lineList.push(data.opponent.welcomeText)
+        }
+        
         document.querySelector("#waiting").style.display = "none";
         document.querySelector("#gamelost").style.display = "none";
         document.querySelector("#gamewon").style.display = "none";
