@@ -35,7 +35,7 @@
 
         <div id="opponentavatar"></div>
 
-        <div id="extrawindow1">Add some enemy quote here</div>
+        <div id="extrawindow1"></div>
         <div id="extrawindow2">Add API reply to not good command</div>
 
 

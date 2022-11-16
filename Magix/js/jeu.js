@@ -7,6 +7,7 @@ let opponentBoard = new Field("opponentfield");
 let handChanged = false;
 let playerFieldChanged = false;
 let opponentFieldChanged = false;
+let lineList = []
 
 
 let attackUID = -1;
@@ -260,6 +261,22 @@ document.querySelector("#opponentavatar").onclick = e => {
 
 window.addEventListener("load", () => {
     setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
+
+    let currentline = "HELP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+    let displaytext = "";
+
+    for (let i = 0; i < currentline.length; i++) {
+        setTimeout(() => {
+            displaytext +=currentline.charAt(i);
+            document.querySelector("#extrawindow1").innerHTML = displaytext;
+        }, 500 * (i))
+        if (i == currentline.length - 1){
+            document.querySelector("#extrawindow1").innerHTML = "";
+            i = 0;
+            currentline = "PLEASEEEEE"
+
+        }
+    }
 });
 
 
