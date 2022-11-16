@@ -1,7 +1,7 @@
 #conteneurmain{
     width: 100%;
     height: 100%;
-    background-image: url(../img/grassbackground.png);
+    /* background-image: url(../img/grassbackground.png); */
     background-repeat: repeat;
     display:flex;
     flex-direction: column;
@@ -12,27 +12,71 @@
     overflow: hidden;
 }
 
+#backgroundground{
+    position: absolute;
+    height: 60%;
+    width: 100%;
+    top: 40vh;
+    background-image: url(../img/grassbackground.png);
+    background-repeat: repeat;
+    z-index: -2;
+}
+
+#backgroundsky{
+    position: absolute;
+    height: 40%;
+    width: 100%;
+    top: 0;
+    background-image: url(../img/sky3.png);
+    background-size: cover;
+    z-index: -2;
+}
+
+#backgroundtree{
+    position: absolute;
+    height: 100%;
+    width: 40%;
+    bottom: 10%;
+    left: 30%;
+    background-size:contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+    background-image: url(../img/tree.png);
+
+}
+
 #opponentzone{
-    background-color: blue;
     height: 10%;
     display:flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2px;
+}
+
+#opponentzone>div{
+    width: 20%;
 }
 
 .stats2{
-    width: var(--sides);
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content:space-around;
     align-items: center;
+    font-family: 'Press Start 2P';
 }
+
+#extrawindow1{
+    height: 100%;
+}
+#extrawindow2{
+    height: 100%;
+}
+
 
 .cardzone{
     display:flex;
-    flex: 1;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -45,39 +89,25 @@
     grid-template-columns: var(--sides) 1fr var(--sides);
     grid-template-rows: 1fr 1fr 0.1fr 1fr 1fr 0.1fr 1fr 1fr;
     grid-template-areas: 
-        "leftfield opponentfield rightfield"
-        "leftfield opponentfield rightfield"
-        "leftfield spacer1 rightfield"
-        "leftfield playerfield rightfield"
-        "leftstat playerfield menuoption"
-        "leftstat spacer2 menuoption"
-        "leftstat playerhand menuoption"
-        "leftstat playerhand menuoption";
+        "leftfield middlesection rightfield"
+        "leftfield middlesection rightfield"
+        "leftfield middlesection rightfield"
+        "leftfield middlesection rightfield"
+        "leftstat middlesection menuoption"
+        "leftstat middlesection menuoption"
+        "leftstat middlesection menuoption"
+        "leftstat middlesection menuoption";
 }
-#zone > div{
+#zone>div{
     height:100%;
 }
 
-#spacer1{
-    grid-area: spacer1;
-    background-color: rgb(138, 212, 79);
-}
-
-#spacer2{
-    grid-area: spacer2;
-    background-color: rgb(138, 212, 79);
-}
-
-#opponentfield{
-    grid-area: opponentfield;
-}
-
-#playerfield{
-    grid-area: playerfield;
-}
-
-#playerhand{
-    grid-area: playerhand;
+#middlesection{
+    grid-area:middlesection;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 #rightplayzone{
@@ -116,6 +146,11 @@
     align-items: center;
 }
 
+#middlesection>div{
+    width: 100%;
+    height: 32%;
+}
+
 .stats>div{
     font-family: 'Press Start 2P';
 }
@@ -151,9 +186,7 @@
 
 #opponentavatar{
     height: 100%;
-    width: 20%;
-    background-color: orange;
-    background-image: url(../img/tennis-ball.png);
+    background-image: url(../img/opponent.gif);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -257,22 +290,28 @@
     display: flex;
 }
 
+#menu>div{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 #heropower{
     width: 140px;
     height: 140px;
     background-image: url(../img/power.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
 }
 
 #endturn{
     width: 140px;
     height: 112px;
     background-image: url(../img/endturn.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+}
+
+#surrender{
+    width: 140px;
+    height: 112px;
+    background-image: url(../img/foodbowl.png);
 }
 
 
