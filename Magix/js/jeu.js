@@ -8,6 +8,15 @@ let handChanged = false;
 let playerFieldChanged = false;
 let opponentFieldChanged = false;
 let lineList = []
+let displaytext = ""
+let ennemyQuoteFetched = false;
+
+lineList.push("HELP!!!!!!!")
+lineList.push("GET ME DOWN!!!!")
+lineList.push("T_T!!!!!!!")
+lineList.push("GO AWAYYYY!!!")
+lineList.push("I'M ALLERGIC TO YOU!!!")
+lineList.push("LEAVE ME ALONE!!!!")
 
 
 let attackUID = -1;
@@ -21,6 +30,11 @@ const state = () => {
 .then(response => response.json())
 .then(data => {
     console.log(data); // contient les cartes/état du jeu.
+
+    if(ennemyQuoteFetched == false){
+        ennemyQuoteFetched = true;
+        lineList.push(data.opponent.welcomeText)
+    }
 
     document.querySelector("#opponentavatar").style.width = document.querySelector("#opponentavatar").offsetHeight + "px";
 
@@ -203,13 +217,6 @@ const state = () => {
             targetUID = -1
             attackUID = -1
         }
-
-
-
-
-
-
-
     }
 
 
@@ -262,23 +269,23 @@ document.querySelector("#opponentavatar").onclick = e => {
 window.addEventListener("load", () => {
     setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
 
-    let currentline = "HELP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+    newQuote();
+});
+
+const newQuote = () => {
+    let quote = Math.floor(Math.random() * lineList.length);
+    let currentline = lineList[quote];
     let displaytext = "";
 
     for (let i = 0; i < currentline.length; i++) {
         setTimeout(() => {
             displaytext +=currentline.charAt(i);
             document.querySelector("#extrawindow1").innerHTML = displaytext;
+            if (i == currentline.length - 1){
+                newQuote();
+            }
         }, 500 * (i))
-        if (i == currentline.length - 1){
-            document.querySelector("#extrawindow1").innerHTML = "";
-            i = 0;
-            currentline = "PLEASEEEEE"
-
-        }
     }
-});
-
-
+}
 
 
