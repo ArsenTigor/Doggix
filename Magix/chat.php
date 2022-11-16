@@ -24,6 +24,7 @@
 
 <div class="roomtype" id="training">TRAINING</div>
 <div class="roomtype" id="pvp">PVP</div>
+<div class="walker"></div>
 
 
 

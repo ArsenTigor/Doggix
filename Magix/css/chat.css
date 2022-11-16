@@ -1,0 +1,8 @@
+.walker{
+    height: 600px;
+    width: 800px;
+    background-image: url(../img/walker2.gif);
+    background-color: black;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
