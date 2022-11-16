@@ -21,6 +21,8 @@ const state = () => {
 .then(data => {
     console.log(data); // contient les cartes/état du jeu.
 
+    document.querySelector("#opponentavatar").style.width = document.querySelector("#opponentavatar").offsetHeight + "px";
+
     if(data == "WAITING"){
         document.querySelector("#waiting").style.display = "flex";
     }

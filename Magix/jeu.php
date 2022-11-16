@@ -16,10 +16,10 @@
 <div id="gamelost">YOU LOST</div>
 
 <div id="backgroundtree"></div>
+<div id="backgroundground"></div>
+<div id="backgroundsky"></div>
 
 <div id="conteneurmain">
-    <div id="backgroundground"></div>
-    <div id="backgroundsky"></div>
         
     <div id="opponentzone">
         <div class="stats2">
