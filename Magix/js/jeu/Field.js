@@ -44,9 +44,7 @@ export default class Hand {
         this.field.forEach(card => {
             api.forEach(eApi => {
                 if(card.uid == eApi.uid){
-                    card.hp.innerHTML = eApi.hp;
-                    card.cost.innerHTML = eApi.cost;
-                    card.atk.innerHTML = eApi.atk;
+                    card.updateCardData(eApi);
                 }
             });
         });

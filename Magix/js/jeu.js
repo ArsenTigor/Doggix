@@ -10,6 +10,7 @@ let opponentFieldChanged = false;
 let lineList = []
 let displaytext = ""
 let ennemyQuoteFetched = false;
+let tauntPresent = false;
 
 lineList.push("HELP!!!!!!!")
 lineList.push("GET ME DOWN!!!!")
@@ -160,6 +161,7 @@ const state = () => {
         }
 
         //ON CLICK FOR ALL CARDS
+        //To play card
         tabCardPlayer.field.forEach(element => {
             element.card.onclick = e => {
                 let formData = new FormData();
@@ -171,32 +173,30 @@ const state = () => {
                 })
                 .then(response => response.json())
                 .then(result => {
-                    console.log(result)
+                    //ERROR MESSAGE INTO EXTRA2
                 })
             }
         });
 
+        //Selecting Attacker
         playerBoard.field.forEach(element => {
             element.card.onclick = e => {
-                ///////Attacker
                 console.log("CLICKED ON PLAYER CARD")
                 element.card.classList.add("glow")
                 attackUID = element.uid;
             }
         });
         
+        //Selecting Target
         opponentBoard.field.forEach(element => {
             element.card.onclick = e => {
-                ///////Attacked
                 console.log("CLICKED ON OPPOENENT CARD")
-                element.card.classList.add("glow")
                 targetUID = element.uid;
             }
         });
 
-
+        //API call to attack
         if (targetUID != -1 && attackUID != -1){
-
             let formData = new FormData();
             formData.append("game", "attack")
             formData.append("gameUID", attackUID)
@@ -207,12 +207,9 @@ const state = () => {
             })
             .then(response => response.json())
             .then(result => {
-                console.log(result)
+                //ERROR MESSAGE INTO EXTRA2
             })
 
-            opponentBoard.field.forEach(element => {
-                element.card.classList.remove("glow")
-            });
             playerBoard.field.forEach(element => {
                 element.card.classList.remove("glow")
             });
@@ -220,6 +217,55 @@ const state = () => {
             targetUID = -1
             attackUID = -1
         }
+
+
+        //SPECIAL EFFECT ON CARDS
+        //Sleep
+        playerBoard.field.forEach(element => {
+            if(element.data.state == "SLEEP"){
+                element.card.classList.add("greyed")
+            }
+        });
+        opponentBoard.field.forEach(element => {
+            if(element.data.state == "SLEEP"){
+                element.card.classList.add("greyed")
+            }
+        });
+
+        //Idle
+        playerBoard.field.forEach(element => {
+            if(element.data.state == "IDLE"){
+                element.card.classList.remove("greyed")
+            }
+        });
+        opponentBoard.field.forEach(element => {
+            if(element.data.state == "IDLE"){
+                element.card.classList.remove("greyed")
+            }
+        });
+
+        //Taunt
+        opponentBoard.field.forEach(element => {
+            if(element.data.mechanics.includes("Taunt")){
+                tauntPresent = true;
+            }else{
+                tauntPresent = false;
+            }
+        });
+        if(tauntPresent == true){
+            opponentBoard.field.forEach(element => {
+                if(!element.data.mechanics.includes("Taunt")){
+                    element.card.classList.add("greyed")
+                }
+            });
+        }
+        
+        //Stealth
+        opponentBoard.field.forEach(element => {
+            if(element.data.mechanics.includes("Stealth")){
+                element.card.classList.add("greyed")
+            }
+        });
     }
 
 
@@ -279,6 +325,7 @@ const newQuote = () => {
     let quote = Math.floor(Math.random() * lineList.length);
     let currentline = lineList[quote];
     let displaytext = "";
+    let textspeed = 500
 
     for (let i = 0; i < currentline.length; i++) {
         setTimeout(() => {
@@ -287,7 +334,7 @@ const newQuote = () => {
             if (i == currentline.length - 1){
                 newQuote();
             }
-        }, 500 * (i))
+        }, textspeed * (i))
     }
 }
 

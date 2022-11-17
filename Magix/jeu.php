@@ -28,9 +28,9 @@
         </div>
 
         <div class="stats3 flexspacearound">
-            <div id="opponentlife" class="flexcenter backgroundcenter" >LIFE</div>
-            <div id="opponentenergy" class="flexcenter backgroundcenter ">ENERGY </div>
             <div id="opponentcardleft" class="flexcenter backgroundcenter" >CARD LEFT</div>
+            <div id="opponentenergy" class="flexcenter backgroundcenter ">ENERGY </div>
+            <div id="opponentlife" class="flexcenter backgroundcenter" >LIFE</div>
         </div>
 
         <div class="backgroundcenter" id="opponentavatar"></div>
@@ -57,8 +57,8 @@
         </div>
     
         <div class="stats flexspacearound">
-            <div id="playerlife">LIFE</div>
             <div id="playerenergy">ENERGY </div>
+            <div id="playerlife">LIFE</div>
         </div>
 
         <div id="middlesection" class="flexspacearound">

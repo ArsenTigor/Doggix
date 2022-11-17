@@ -248,6 +248,28 @@
     justify-content: space-around;
 }
 
+.cardeffects{
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    top: -17%
+    
+}
+
+.cardeffects > div{
+    z-index: 2;
+    background-size: contain;
+    height: 100%;
+    width: 20%;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 2px;
+}
+
+
 .cardstats > div{
     z-index: 2;
     background-size: contain;
@@ -262,6 +284,34 @@
     text-align: center;
     font-family: 'Press Start 2P';
     font-size: smaller;
+}
+
+.taunt{
+    background-image: url(../img/effect/taunt.png);
+}
+
+.stealth{
+    background-image: url(../img/effect/stealth.png);
+}
+
+.battlecry{
+    background-image: url(../img/effect/battlecry.png);
+}
+
+.deathrattle{
+    background-image: url(../img/effect/deathrattle.png);
+}
+
+.confused{
+    background-image: url(../img/effect/confused.png);
+}
+
+.charge{
+    background-image: url(../img/effect/charge.png);
+}
+
+.cannotattack{
+    background-image: url(../img/effect/cannotatk.png);
 }
 
 .cardcost{
@@ -363,4 +413,10 @@
     height: 220px;
     background-image: url(../img/backcard.png);
 }
+
+.greyed{
+    opacity: 0.5;
+}
+
+
 
