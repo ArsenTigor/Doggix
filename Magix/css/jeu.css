@@ -45,12 +45,28 @@
 
 }
 
-#opponentzone{
-    height: 15%;
+.flexcenter, .stats>div{
     display:flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.flexspacearound{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.backgroundcenter, #menu>div{
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+#opponentzone{
+    height: 15%;
+    flex-direction: row;
     margin-bottom: 2px;
 }
 
@@ -60,27 +76,27 @@
 
 .stats2{
     height: 100%;
-    display: flex;
     flex:1;
     flex-direction: column;
-    justify-content:space-around;
-    align-items: center;
+    font-family: 'Press Start 2P';
+}
+
+.stats3{
+    height: 100%;
+    flex:1;
+    flex-direction: row;
     font-family: 'Press Start 2P';
 }
 
 #extrawindow1{
     height: 100%;
     flex:1;
-    background-image: url(../img/bubble4.png);
+    background-image: url(../img/bubble5.png);
     background-position:left;
     background-repeat: no-repeat;
-    background-size: contain;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Press Start 2P';
+    background-size: 100% auto;
     font-size: x-small;
-    
+    font-family: 'Press Start 2P';
 }
 
 #extrawindow2{
@@ -90,10 +106,7 @@
 
 
 .cardzone{
-    display:flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
     background-color: rgba(128, 128, 128, 0.5);
 }
 
@@ -118,10 +131,8 @@
 
 #middlesection{
     grid-area:middlesection;
-    display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+
 }
 
 #rightplayzone{
@@ -133,10 +144,7 @@
 
 #leftplayzone{
     grid-area: leftfield;
-    display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
     height: 100%;
     text-align: center;
 }
@@ -145,19 +153,13 @@
     grid-area: menuoption;
     width: var(--sides);
     height: 100%;
-    display: flex;
     flex-direction: column;
-    justify-content:space-around;
-    align-items: center;
 }
 
 .stats{
     grid-area: leftstat;
     height: 100%;
-    display: flex;
     flex-direction: column;
-    justify-content:space-around;
-    align-items: center;
 }
 
 #middlesection>div{
@@ -172,9 +174,6 @@
 #rightplayzone>div {
     width: 100%;
     height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: 'Press Start 2P';
     margin: auto;
 }
@@ -185,9 +184,6 @@
 
 .timeranimation{
     background-image: url(../img/hourglass.gif);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain
 }
 
 #currentplayer{
@@ -202,9 +198,23 @@
     height: 100%;
     width: auto;
     background-image: url(../img/opponent.gif);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+}
+
+#opponentlife{
+    background-image: url(../img/heart.png);
+}
+
+#opponentenergy{
+    background-image: url(../img/tennis-ball.png);
+}
+
+#opponentcardleft{
+    background-image: url(../img/backcard.png);
+}
+
+#opponentlife, #opponentenergy, #opponentcardleft{
+    width: 30%;
+    height: 80%;
 }
 
 .card{
@@ -243,13 +253,13 @@
     background-size: contain;
     width: 100%;
     height: 30%;
-    text-align: center;
     background-position: center;
     background-repeat: no-repeat;
     margin: 2px;
-    display:flex;
     flex-direction: column;
+    display:flex;
     justify-content: center;
+    text-align: center;
     font-family: 'Press Start 2P';
     font-size: smaller;
 }
@@ -305,12 +315,6 @@
     display: flex;
 }
 
-#menu>div{
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
 #heropower{
     width: 140px;
     height: 140px;
@@ -336,9 +340,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: larger;
 
 }
@@ -352,10 +353,7 @@
 }
 
 #playercardleft{
-    display: flex;
     flex-direction: column;
-    justify-content:space-around;
-    align-items: center;
     font-family: 'Press Start 2P';
     line-height: 1.5;
 }
@@ -363,9 +361,6 @@
 #deckpile{
     width: 160px;
     height: 220px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     background-image: url(../img/backcard.png);
 }
 

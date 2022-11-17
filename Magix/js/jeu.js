@@ -48,7 +48,7 @@ const state = () => {
 
         if(ennemyQuoteFetched == false){
             ennemyQuoteFetched = true;
-            lineList.push(data.opponent.welcomeText)
+            lineList.push(data.opponent.welcomeText + "!!!")
         }
         
         document.querySelector("#waiting").style.display = "none";
@@ -62,7 +62,7 @@ const state = () => {
         document.querySelector("#opponentenergy").innerHTML = data.opponent.mp;
         document.querySelector("#opponentcardleft").innerHTML = data.opponent.remainingCardsCount;
         document.querySelector("#opponentname").innerHTML = data.opponent.username;
-        document.querySelector("#opponentclass").innerHTML = data.opponent.heroClass;
+        document.querySelector("#opponentclass").innerHTML = data.opponent.talent + " " + data.opponent.heroClass;
         document.querySelector("#timer").innerHTML = data.remainingTurnTime;
         if(data.yourTurn == false){
             document.querySelector("#currentplayer").innerHTML = data.opponent.username + "'s<br>turn";

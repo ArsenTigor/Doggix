@@ -21,21 +21,21 @@
 
 <div id="conteneurmain">
         
-    <div id="opponentzone">
-        <div class="stats2">
+    <div id="opponentzone" class="flexcenter">
+        <div class="stats2 flexspacearound">
             <div id="opponentname">OPPONENT NAME</div>
             <div id="opponentclass">OPPONENT CLASS</div>
         </div>
 
-        <div class="stats2">
-            <div id="opponentlife">LIFE</div>
-            <div id="opponentenergy">ENERGY </div>
-            <div id="opponentcardleft">CARD LEFT</div>
+        <div class="stats3 flexspacearound">
+            <div id="opponentlife" class="flexcenter backgroundcenter" >LIFE</div>
+            <div id="opponentenergy" class="flexcenter backgroundcenter ">ENERGY </div>
+            <div id="opponentcardleft" class="flexcenter backgroundcenter" >CARD LEFT</div>
         </div>
 
-        <div id="opponentavatar"></div>
+        <div class="backgroundcenter" id="opponentavatar"></div>
 
-        <div id="extrawindow1"></div>
+        <div id="extrawindow1" class="flexcenter"></div>
         <div id="extrawindow2">Add API reply to not good command</div>
 
 
@@ -43,33 +43,33 @@
 
 
     <div id="zone">
-        <div id="leftplayzone">
-            <div id="playercardleft"> PLAYER CARD LEFT</div>
-            <div id="deckpile"></div>
+        <div id="leftplayzone" class="flexspacearound">
+            <div id="playercardleft" class="flexspacearound"> PLAYER CARD LEFT</div>
+            <div id="deckpile" class="backgroundcenter"></div>
         </div>
         
      
         
         <div id="rightplayzone">
-            <div id="currentplayer"></div>
-            <div class="timeranimation"></div>
-            <div id="timer"></div>
+            <div id="currentplayer" class="flexcenter" ></div>
+            <div class="timeranimation flexcenter backgroundcenter"></div>
+            <div id="timer" class="flexcenter" ></div>
         </div>
     
-        <div class="stats">
+        <div class="stats flexspacearound">
             <div id="playerlife">LIFE</div>
             <div id="playerenergy">ENERGY </div>
         </div>
 
-        <div id="middlesection">
-            <div id="opponentfield" class="cardzone"></div>
+        <div id="middlesection" class="flexspacearound">
+            <div id="opponentfield" class="cardzone flexcenter"></div>
             
-            <div id="playerfield" class="cardzone"></div>
+            <div id="playerfield" class="cardzone flexcenter"></div>
 
-            <div id="playerhand" class="cardzone"></div>
+            <div id="playerhand" class="cardzone flexcenter"></div>
         </div>
         
-        <div id="menu">
+        <div id="menu" class="flexspacearound">
             <div id="heropower"></div>
             <div id="endturn"></div>
             <div id="surrender"></div>
