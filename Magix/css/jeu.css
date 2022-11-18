@@ -45,24 +45,17 @@
 
 }
 
-.flexcenter, .stats>div{
+.stats>div{
     display:flex;
     justify-content: center;
     align-items: center;
 }
 
-.flexspacearound{
-    display: flex;
-    justify-content:space-around;
-    align-items: center;
-}
-
-.backgroundcenter, #menu>div{
+#menu>div{
     background-size:contain;
     background-repeat: no-repeat;
     background-position: center;
 }
-
 
 #opponentzone{
     height: 15%;

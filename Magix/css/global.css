@@ -20,3 +20,20 @@ body {
 
 }
 
+.flexcenter{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexspacearound{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.backgroundcenter{
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}

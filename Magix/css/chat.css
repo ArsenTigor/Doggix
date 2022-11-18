@@ -6,3 +6,32 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+#maincontainer{
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+}
+
+#chatbox{
+    flex: 4;
+    height: 80%;
+}
+
+#chatmenu{
+    flex: 2;
+    height: 100%;
+    flex-direction: column;
+}
+
+#mainwalker{
+    flex:2;
+    height: 50%;
+    align-items: baseline;
+}
+
+#chatmenu>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

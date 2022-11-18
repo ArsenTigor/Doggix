@@ -1,16 +1,16 @@
 const applyStyles = iframe => {
 	let styles = {
 		fontColor : "#333",
-		backgroundColor : "rgba(87, 41, 5, 0.2)",
-		fontGoogleName : "Sofia",
-		fontSize : "20px",
+		backgroundColor : "rgba(128, 128, 128, 0.2)",
+		fontGoogleName : "Press Start 2P",
+		fontSize : "16px",
 		hideIcons : false,
 		inputBackgroundColor : "red",
 		inputFontColor : "blue",
 		height : "100%",
 		width : "100%",
 		memberListFontColor : "#ff00dd",
-		memberListBackgroundColor : "white"
+		memberListBackgroundColor : "rgba(128, 128, 128, 0.7)"
 	}
 	
 	setTimeout(() => {
@@ -18,6 +18,8 @@ const applyStyles = iframe => {
 	}, 100);
 }
 window.applyStyles = applyStyles;
+
+
 
 let room = [];
 let training = document.querySelector("#training");

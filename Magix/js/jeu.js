@@ -61,7 +61,7 @@ const state = () => {
         document.querySelector("#playercardleft").innerHTML = "Cardleft<br>" + data.remainingCardsCount;
         document.querySelector("#opponentlife").innerHTML = data.opponent.hp;
         document.querySelector("#opponentenergy").innerHTML = data.opponent.mp;
-        document.querySelector("#opponentcardleft").innerHTML = data.opponent.remainingCardsCount;
+        document.querySelector("#opponentcardleft").innerHTML = data.opponent.handSize;
         document.querySelector("#opponentname").innerHTML = data.opponent.username;
         document.querySelector("#opponentclass").innerHTML = data.opponent.talent + " " + data.opponent.heroClass;
         document.querySelector("#timer").innerHTML = data.remainingTurnTime;
@@ -332,7 +332,9 @@ const newQuote = () => {
             displaytext +=currentline.charAt(i);
             document.querySelector("#extrawindow1").innerHTML = displaytext;
             if (i == currentline.length - 1){
-                newQuote();
+                setTimeout(() => {
+                    newQuote();
+                }, 3000)
             }
         }, textspeed * (i))
     }
