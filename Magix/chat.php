@@ -7,22 +7,25 @@
     require_once("partial/header.php");
 ?>
 
-<div id="maincontainer" class="flexspacearound">
-
-    <div id="mainwalker"></div>
-
-    <div id="chatbox">
-        <iframe style="width:100%;height:100%;" onload="applyStyles(this)" 
-                src="https://magix.apps-de-cours.com/server/#/chat/<?=$data["key"]?>/large">
-        </iframe>
-    </div>
-
+<div id="maincontainer" class="flexcenter">
     <div id="chatmenu" class="flexspacearound">
         <div class="roomtype" id="training">TRAINING</div>
         <div class="roomtype" id="pvp">PVP</div>
     </div>
 
+    <div id="chatboxcontainer">
+        <div id="chatbox" class="flexcenter">
+            <iframe style="width:100%;height:90%;" onload="applyStyles(this)" 
+            src="https://magix.apps-de-cours.com/server/#/chat/<?=$data["key"]?>/large">
+            </iframe>
+        </div>
+    </div>
+
 </div>
+
+
+
+
 
 
 <?php

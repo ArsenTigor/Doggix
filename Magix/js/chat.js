@@ -39,14 +39,15 @@ room.forEach(element => {
 		.then(response => response.json())
 		.then(result => {
 			if(result == "JOINED_TRAINING"){
-				console.log("you made it work? Really?");
 				window.location.href = "./jeu.php"
 			}
 			if(result == "JOINED_PVP"){
 				console.log("Joining pvp");
+				window.location.href = "./jeu.php"
 			}
 			if(result == "CREATED_PVP"){
 				console.log("creating pvp");
+				window.location.href = "./jeu.php"
 			}
 		})
 	}
