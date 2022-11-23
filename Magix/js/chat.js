@@ -23,9 +23,6 @@ window.applyStyles = applyStyles;
 import Parallax from './sprites/Parallax.js'
 import Corgi from './sprites/Corgi.js';
 
-
-
-
 let spriteList = [];
 let parentNode  = document.querySelector("#bgwalker");
 let corgi = new Corgi("#bgwalker");
@@ -39,11 +36,9 @@ window.addEventListener("load", () => {
 
 })
 
-
 const tick = () => {
     
 	corgi.tick();
-
 
     for (let i = 0; i < spriteList.length; i++) {
         let alive = spriteList[i].tick();
@@ -56,43 +51,6 @@ const tick = () => {
 
     window.requestAnimationFrame(tick);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -120,12 +78,13 @@ room.forEach(element => {
 				window.location.href = "./jeu.php"
 			}
 			if(result == "CREATED_PVP"){
-				console.log("creating pvp");
+				console.log("Creating pvp");
 				window.location.href = "./jeu.php"
 			}
 		})
 	}
 });
 
-
-
+document.querySelector("#stats").onclick = e => {
+   	 window.location.href = "./stats.php"
+}

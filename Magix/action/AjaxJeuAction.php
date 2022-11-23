@@ -1,5 +1,6 @@
 <?php
     require_once("action/CommonAction.php");
+    require_once("action/DAO/CardDAO.php");
 
     class AjaxJeuAction extends CommonAction {
 
@@ -34,6 +35,7 @@
                     $data["type"] = "PLAY";
                     $data["uid"] = $_POST["gameUID"];
                     $result = parent::callAPI("games/action", $data);
+                    CardDAO::addCardPlayed($_POST["gameID"]);
                 }
                 if($_POST["game"] == "attack"){
                     $data["type"] = "ATTACK";

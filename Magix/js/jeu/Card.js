@@ -3,6 +3,7 @@ export default class Card {
         this.data = data;
 
         this.uid = this.data.uid;
+        this.id = this.data.id;
 
         this.card = document.createElement("div");
         this.card.classList.add("card");

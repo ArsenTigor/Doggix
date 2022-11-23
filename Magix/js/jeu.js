@@ -167,6 +167,8 @@ const state = () => {
                 let formData = new FormData();
                 formData.append("game", "play")
                 formData.append("gameUID", element.uid)
+                console.log(element.id);
+                formData.append("gameID", element.id)
                 fetch("ajax-jeu.php", {
                 method: "POST",
                 body: formData
