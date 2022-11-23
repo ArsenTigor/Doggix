@@ -7,6 +7,16 @@
     require_once("partial/header.php");
 ?>
 
+<div id="background-container-absolute">
+    <div id="background-container">
+        <div class="background" id="bgtop1"><img src="./img/cityclose.png" alt=""></div>
+        <div class="background" id="bgtop2"><img src="./img/cityclose.png" alt=""></div>
+        <div class="background" id="bgbottom1"><img src="./img/grassbackground2.png" alt=""></div>
+        <div class="background" id="bgbottom2"><img src="./img/grassbackground2.png" alt=""></div>
+        <div class="background" id="bgwalker"></div>
+    </div>
+</div>
+
 <div id="maincontainer" class="flexcenter">
     <div id="chatmenu" class="flexspacearound">
         <div class="roomtype" id="training">TRAINING</div>
