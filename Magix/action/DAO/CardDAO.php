@@ -12,7 +12,6 @@
             return $statement->fetchAll();
         }
 
-           
         public static function addCardPlayed($cardid)  {
 
             $connection = Connection::getConnection();
@@ -21,5 +20,24 @@
             $statement->bindParam(1, $cardid);
             $statement->execute();
         }
+
+        public static function getDataCountOrdered(){
+            $connection = Connection::getConnection();
+            $statement = $connection -> prepare("SELECT cardid, count(*) FROM card_data GROUP BY cardid ORDER BY count(*) DESC");
+            $statement->setFetchMode(PDO::FETCH_ASSOC);
+            $statement->execute();
+            
+            return $statement->fetchAll();
+        }
+
+        public static function getTotalData(){
+            $connection = Connection::getConnection();
+            $statement = $connection ->prepare("SELECT COUNT(*) FROM card_data");
+            $statement->setFetchMode(PDO::FETCH_ASSOC);
+            $statement->execute();
+
+            return $statement->fetchAll();
+        }
+
     }
     
