@@ -28,7 +28,9 @@ import Corgi from './sprites/Corgi.js';
 
 let spriteList = [];
 let parentNode  = document.querySelector("#bgwalker");
-let corgi = new Corgi();
+let corgi = new Corgi("#bgwalker");
+corgi.walkRight();
+corgi.setPos(150, parentNode.offsetHeight - corgi.getHeight() - 150);
 
 window.addEventListener("load", () => {
     spriteList.push(new Parallax());
@@ -40,6 +42,9 @@ window.addEventListener("load", () => {
 
 const tick = () => {
     
+	corgi.tick();
+
+
     for (let i = 0; i < spriteList.length; i++) {
         let alive = spriteList[i].tick();
 

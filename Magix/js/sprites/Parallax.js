@@ -16,7 +16,7 @@ export default class Parallax{
         this.bgTop2.style.left = this.x2 + "px"
         this.bgBottom2.style.left = this.x2 + "px"
         
-        this.speed = 0.3;
+        this.speed = 0.5;
     }
 
     tick(){

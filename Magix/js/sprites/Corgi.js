@@ -1,7 +1,7 @@
 import TiledImage from "../TiledImage.js";
 
 export default class Corgi{
-    constructor() {
+    constructor(parentqueryselector) {
         let columnCount = 11;
         let rowCount = 16;
         let refreshDelay = 150; //maison
@@ -18,20 +18,19 @@ export default class Corgi{
         this.shadow = document.createElement("div");
         this.shadow.setAttribute('id', 'shadowcorgi');
 
-        this.parentNode = document.querySelector("#conteneur");
+        this.parentNode = document.querySelector(parentqueryselector);
         this.parentNode.append(this.shadow);
         this.parentNode.append(this.node);
         this.parentNode.append(this.nodeBubble);
         this.parentNode.append(this.nodeBubble2);
 
-        this.terrainNode = document.querySelector("#terrain");
 
         this.corgi = new TiledImage("img/corgi.png", columnCount, rowCount, refreshDelay, loopColumn, scale, this.node);
         this.corgi.changeRow(3);
         this.corgi.changeMinMaxInterval(3, 8);
         
         this.x = 50;
-        this.y = 50 + this.terrainNode.offsetTop;
+        this.y = this.parentNode.offsetHeight - 200;
         this.chasingBall = false;
         this.idle = true;
         this.vitX = 0;
@@ -119,6 +118,15 @@ export default class Corgi{
 
         this.corgi.tick(this.x, this.y);
         return true;
+    }
+
+    setPos(x, y){
+        this.x = x;
+        this.y = y;
+    }
+
+    getHeight(){
+        return this.node.offsetHeight;
     }
 
     setSpeed(posXBall, posYBall){    
