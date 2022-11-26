@@ -1,3 +1,25 @@
+//Style of chatbox
+const applyStyles = iframe => {
+	let styles = {
+		fontColor : "#333",
+		backgroundColor : "rgba(159, 255, 159, 0.8)",
+		fontGoogleName : "Press Start 2P",
+		fontSize : "16px",
+		hideIcons : false,
+		inputBackgroundColor :"rgba(100, 255, 100, 0.8)",
+		inputFontColor : "black",
+		height : "100%",
+		width : "100%",
+		memberListFontColor : "#ff00dd",
+		memberListBackgroundColor : "rgba(128, 128, 128, 0.7)"
+	}
+	
+	setTimeout(() => {
+		iframe.contentWindow.postMessage(JSON.stringify(styles), "*");	
+	}, 100);
+}
+window.applyStyles = applyStyles;
+
 import Card from './jeu/Card.js';
 import Field from './jeu/Field.js';
 
@@ -11,6 +33,7 @@ let lineList = []
 let displaytext = ""
 let ennemyQuoteFetched = false;
 let tauntPresent = false;
+let chatboxOpen = false;
 
 lineList.push("HELP!!!!!!!")
 lineList.push("GET ME DOWN!!!!")
@@ -41,9 +64,15 @@ const state = () => {
     }
     else if(data == "LAST_GAME_WON"){
         document.querySelector("#gamewon").style.display = "flex";
+        setTimeout(() => {
+            window.location.href = "./chat.php"
+        }, 5000);
     }
     else if(data == "LAST_GAME_LOST"){
         document.querySelector("#gamelost").style.display = "flex";
+        setTimeout(() => {
+            window.location.href = "./chat.php"
+        }, 5000);
     }
     else {
 
@@ -175,7 +204,7 @@ const state = () => {
                 })
                 .then(response => response.json())
                 .then(result => {
-                    //ERROR MESSAGE INTO EXTRA2
+                    error(result);
                 })
             }
         });
@@ -209,7 +238,7 @@ const state = () => {
             })
             .then(response => response.json())
             .then(result => {
-                //ERROR MESSAGE INTO EXTRA2
+                error(result);
             })
 
             playerBoard.field.forEach(element => {
@@ -285,6 +314,7 @@ document.querySelector("#endturn").onclick = e => {
     })
     .then(response => response.json())
     .then(result => {
+        error(result);
     })
 }
 
@@ -297,6 +327,7 @@ document.querySelector("#surrender").onclick = e => {
     })
     .then(response => response.json())
     .then(result => {
+        error(result);
     })
 }
 
@@ -309,17 +340,28 @@ document.querySelector("#heropower").onclick = e => {
     })
     .then(response => response.json())
     .then(result => {
+        error(result);
     })
 }
 
 document.querySelector("#opponentavatar").onclick = e => {
     targetUID = 0;
-    console.log("HELLO?")
 }
+
+document.querySelector("#togglechat").onclick = e => {
+    if (chatboxOpen == false){
+        chatboxOpen = true;
+        document.querySelector("#chatboxcontainer").style.display = "block";
+    }else{
+        chatboxOpen = false;
+        document.querySelector("#chatboxcontainer").style.display = "none";
+    }
+    console.log("HELLO")
+}
+
 
 window.addEventListener("load", () => {
     setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
-
     newQuote();
 });
 
@@ -340,6 +382,40 @@ const newQuote = () => {
             }
         }, textspeed * (i))
     }
+}
+
+const error = (errorMessage) => {
+    if (errorMessage == "INVALID_ACTION"){
+        document.querySelector("#extrawindow2").innerHTML  = "Action invalide"
+    }else if(errorMessage == "ACTION_IS_NOT_AN_OBJECT"){
+        document.querySelector("#extrawindow2").innerHTML  = "Mauvaise structure de données"
+    }else if(errorMessage == "NOT_ENOUGH_ENERGY"){
+        document.querySelector("#extrawindow2").innerHTML  = "La carte coûte trop cher à jouer"
+    }else if(errorMessage == "BOARD_IS_FULL "){
+        document.querySelector("#extrawindow2").innerHTML  = "Pas assez de place pour la carte"
+    }else if(errorMessage == "CARD_NOT_IN_HAND"){
+        document.querySelector("#extrawindow2").innerHTML  = "La carte n’est pas dans votre main"
+    }else if(errorMessage == "CARD_IS_SLEEPING"){
+        document.querySelector("#extrawindow2").innerHTML  = "Carte ne peut être jouée ce tour-ci"
+    }else if(errorMessage == "MUST_ATTACK_TAUNT_FIRST"){
+        document.querySelector("#extrawindow2").innerHTML  = "Une carte taunt empêche ce coup"
+    }else if(errorMessage == "OPPONENT_CARD_NOT_FOUND"){
+        document.querySelector("#extrawindow2").innerHTML  = "La carte attaquée n’est pas présente sur le jeu"
+    }else if(errorMessage == "OPPONENT_CARD_HAS_STEALTH"){
+        document.querySelector("#extrawindow2").innerHTML  = "La carte ne peut être attaquée directement tant qu’elle possède « stealth »"
+    }else if(errorMessage == "CARD_NOT_FOUND"){
+        document.querySelector("#extrawindow2").innerHTML  = "La carte cherchée (uid) n’est pas présente"
+    }else if(errorMessage == "ERROR_PROCESSING_ACTION"){
+        document.querySelector("#extrawindow2").innerHTML  = "Erreur interne, ne devrait pas se produire"
+    }else if(errorMessage == "INTERNAL_ACTION_ERROR"){
+        document.querySelector("#extrawindow2").innerHTML  = "Erreur interne, ne devrait pas se produire"
+    }else if(errorMessage == "HERO_POWER_ALREADY_USED"){
+        document.querySelector("#extrawindow2").innerHTML  = "Pouvoir déjà utilisé pour ce tour"
+    }
+
+    setTimeout(() => {
+        document.querySelector("#extrawindow2").innerHTML  = ""
+    }, 5000);
 }
 
 

@@ -46,4 +46,11 @@
     </div>
 
     <div class="backbutton">Back</div>
+
+    <script>
+        document.querySelector(".backbutton").onclick = e =>{
+            window.location.href = "./chat.php"
+        }
+    </script>
+
 </div>

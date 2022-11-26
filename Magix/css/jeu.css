@@ -92,6 +92,8 @@
 #extrawindow2{
     height: 100%;
     flex:1;
+    text-align: center;
+    word-wrap: break-word;
 }
 
 
@@ -310,13 +312,21 @@
     background-image: url(../img/heart.png);
 }
 
-.carddesciption{
+.carddesciptioncontain{
+    overflow: hidden;
     height: 45%;
+    width: 100%;
+
+}
+
+.carddesciption{
+    padding: 2px;
+    height: 100%;
     width: 100%;
     word-wrap: break-word;
     font-size:x-small;
     line-height: 1.2;
-    padding: 2px;
+
 }
 
 #playerhand>div:hover{
@@ -338,14 +348,26 @@
     width: 100%;
     position:absolute;
     z-index: 3;
-    background-color: darkgreen;
     display: none;
     justify-content: center;
     align-items: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position:center;
+    background-color: black;
 }
 
 #waiting{
     display: flex;
+    background-image: url(../img/waiting2.gif);
+}
+
+#gamewon{
+    background-image: url(../img/victory.gif);
+}
+
+#gamelost{
+    background-image: url(../img/defeat.gif);
 }
 
 #heropower{
@@ -400,5 +422,22 @@
     opacity: 0.5;
 }
 
+#togglechat{
+    width: 75px;
+    height: 75px;
+    background-image: url(../img/chat.png);
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
 
-
+#chatboxcontainer{
+    width: 60%;
+    height: 80%;
+    margin: 10% 20%;
+    position: absolute;
+    display: none;
+    z-index: 10;
+}

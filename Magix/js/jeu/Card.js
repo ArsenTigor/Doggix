@@ -9,10 +9,18 @@ export default class Card {
         this.card.classList.add("card");
 
         this.cardTop = document.createElement("div");
-        this.cardTop.classList.add("cardimage")
+        this.cardTop.classList.add("cardimage");
+        this.cardTop.style.backgroundColor = "rgb(159, 255, 159)";
+
+
+        this.cardBottomContainer = document.createElement("div");
+        this.cardBottomContainer.classList.add("carddesciptioncontain");
+        
 
         this.cardBottom = document.createElement("div");
         this.cardBottom.classList.add("carddesciption");
+        this.cardBottom.style.backgroundColor = "rgba(100, 255, 100)";
+        this.cardBottom.style.overflow = "hidden";
 
         this.cardStats = document.createElement("div")
         this.cardStats.classList.add("cardstats")
@@ -25,13 +33,14 @@ export default class Card {
         this.hp.classList.add("cardlife");
 
         this.card.append(this.cardTop);
-        this.card.append(this.cardBottom);
+        this.card.append(this.cardBottomContainer);
 
         this.cardStats.append(this.cost);
         this.cardStats.append(this.atk);
         this.cardStats.append(this.hp);
 
         this.cardTop.append(this.cardStats);
+        this.cardBottomContainer.append(this.cardBottom);
 
         this.cardEffects = document.createElement("div");
         this.cardEffects.classList.add("cardeffects");

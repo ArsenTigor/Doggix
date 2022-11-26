@@ -2,8 +2,6 @@
 
     require_once("action/JeuAction.php");
 
-    
-
     $action = new JeuAction();
     $data = $action->execute();
     $pageName = "jeu";
@@ -11,13 +9,23 @@
     require_once("partial/header.php");
 ?>
 
-<div id="waiting">WAITING</div>
-<div id="gamewon">YOU WON</div>
-<div id="gamelost">YOU LOST</div>
+<div id=togglechat></div>
+<div id="chatboxcontainer">
+
+    <iframe style="width:100%;height:90%;" onload="applyStyles(this)" 
+    src="https://magix.apps-de-cours.com/server/#/chat/<?=$data["key"]?>/large">
+    </iframe>
+
+</div>
+
+<div id="waiting"></div>
+<div id="gamewon"></div>
+<div id="gamelost"></div>
 
 <div id="backgroundtree"></div>
 <div id="backgroundground"></div>
 <div id="backgroundsky"></div>
+
 
 <div id="conteneurmain">
         
@@ -36,11 +44,9 @@
         <div class="backgroundcenter" id="opponentavatar"></div>
 
         <div id="extrawindow1" class="flexcenter"></div>
-        <div id="extrawindow2">Add API reply to not good command</div>
-
+        <div id="extrawindow2" class="flexcenter"></div>
 
     </div>
-
 
     <div id="zone">
         <div id="leftplayzone" class="flexspacearound">
