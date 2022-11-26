@@ -20,14 +20,16 @@ const applyStyles = iframe => {
 }
 window.applyStyles = applyStyles;
 
-import Parallax from './sprites/Parallax.js'
+import Parallax from './sprites/Parallax.js';
 import Corgi from './sprites/Corgi.js';
+import Walker from './sprites/Walker.js';
 
 let spriteList = [];
 let parentNode  = document.querySelector("#bgwalker");
 let corgi = new Corgi("#bgwalker", 1);
+let mainWalker = new Walker("#bgwalker", 0, "right")
 corgi.walkRight();
-corgi.setPos(150, parentNode.offsetHeight - corgi.getHeight() - 150);
+corgi.setPos(200, parentNode.offsetHeight - corgi.getHeight() - 150);
 
 window.addEventListener("load", () => {
     spriteList.push(new Parallax());

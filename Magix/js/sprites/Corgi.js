@@ -39,7 +39,7 @@ export default class Corgi{
         this.targetX = 1000;
         this.targetY = 1000;
         
-        this.user = "???"
+        this.user = "hooman"
         this.formData = new FormData();
 		this.formData.append("username", this.user)
 		fetch("ajax.php", {
@@ -52,7 +52,6 @@ export default class Corgi{
 		})
 
         this.quoteList = []
-        this.quoteList.push("<3 " + this.user);
         this.quoteList.push("woof woof");
         this.quoteList.push("snackos plz");
         this.quoteList.push("bork bork");
@@ -65,16 +64,24 @@ export default class Corgi{
             this.quoteList.push("walkin is best");            
         }
 
-        setInterval(() => {
-            let randomText = Math.floor(Math.random() * this.quoteList.length);
-            this.nodeBubble.innerText = this.quoteList[randomText];
-            this.nodeBubble.style.display = "flex";
-            this.nodeBubble2.style.display = "flex";
-            setTimeout(() => {
-                this.nodeBubble.style.display = "none";
-                this.nodeBubble2.style.display = "none";
-            }, 3000);
-        }, 10000);
+        //delay pour API
+        setTimeout(() => {
+            this.quoteList.push("<3 " + this.user);
+
+            setInterval(() => {
+                let randomText = Math.floor(Math.random() * this.quoteList.length);
+                this.nodeBubble.innerText = this.quoteList[randomText];
+                this.nodeBubble.style.display = "flex";
+                this.nodeBubble2.style.display = "flex";
+
+                setTimeout(() => {
+                    this.nodeBubble.style.display = "none";
+                    this.nodeBubble2.style.display = "none";
+                }, 3000);
+                
+            }, 10000);
+
+        }, 2000);
 
     }
 
