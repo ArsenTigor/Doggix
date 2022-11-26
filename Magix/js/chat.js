@@ -25,7 +25,7 @@ import Corgi from './sprites/Corgi.js';
 
 let spriteList = [];
 let parentNode  = document.querySelector("#bgwalker");
-let corgi = new Corgi("#bgwalker");
+let corgi = new Corgi("#bgwalker", 1);
 corgi.walkRight();
 corgi.setPos(150, parentNode.offsetHeight - corgi.getHeight() - 150);
 

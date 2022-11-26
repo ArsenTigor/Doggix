@@ -1,12 +1,13 @@
 import TiledImage from "../TiledImage.js";
 
 export default class Corgi{
-    constructor(parentqueryselector) {
+    constructor(parentqueryselector, quotetype) {
         let columnCount = 11;
         let rowCount = 16;
         let refreshDelay = 150; //maison
         let loopColumn = true;
         let scale = 3;
+
 
         this.node = document.createElement("div");
         this.node.setAttribute('id', 'corgi');
@@ -50,23 +51,23 @@ export default class Corgi{
 			this.user =  result;
 		})
 
+        this.quoteList = []
+        this.quoteList.push("<3 " + this.user);
+        this.quoteList.push("woof woof");
+        this.quoteList.push("snackos plz");
+        this.quoteList.push("bork bork");
+        
+        if(quotetype == 0){
+            this.quoteList.push("throw me the ball");
+        }
+        else if (quotetype == 1){
+            this.quoteList.push("so many frend");
+            this.quoteList.push("walkin is best");            
+        }
+
         setInterval(() => {
-            let randomText = Math.floor(Math.random() * 4);
-            switch(randomText){
-                case 0:
-                    this.text = "<3 " + this.user;
-                    break;
-                case 1:
-                    this.text = "woof woof";
-                    break;
-                case 2:
-                    this.text = "throw me the ball";
-                    break;
-                case 3:
-                    this.text = "snackos plz";
-                    break;
-            }
-            this.nodeBubble.innerText = this.text;
+            let randomText = Math.floor(Math.random() * this.quoteList.length);
+            this.nodeBubble.innerText = this.quoteList[randomText];
             this.nodeBubble.style.display = "flex";
             this.nodeBubble2.style.display = "flex";
             setTimeout(() => {

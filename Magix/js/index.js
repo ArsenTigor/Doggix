@@ -7,7 +7,7 @@ let spriteList = [];
 let ballSpriteList = [];
 let terrain = document.querySelector("#terrain");
 let maxTennisBall = 10;
-let corgi = new Corgi("#conteneur");
+let corgi = new Corgi("#conteneur", 0);
 
 window.addEventListener("load", () => {
     let distanceBetweenX = 400;
