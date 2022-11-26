@@ -60,7 +60,7 @@ export default class Corgi{
             this.quoteList.push("throw me the ball");
         }
         else if (quotetype == 1){
-            this.quoteList.push("so many frend");
+            this.quoteList.push("so many fren");
             this.quoteList.push("walkin is best");            
         }
 

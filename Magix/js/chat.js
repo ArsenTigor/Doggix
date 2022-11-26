@@ -36,6 +36,21 @@ window.addEventListener("load", () => {
 
     tick();
 
+	setInterval(() => {
+		let type = Math.floor(Math.random() * 20) + 1;
+		let direction = "right";
+
+		if (Math.random() < 0.5){
+			direction = "right"
+		}
+		else{
+			direction = "left"
+		}
+
+		let walker = new Walker("#bgwalker", type, direction);
+		spriteList.push(walker);
+	}, 1000);
+
 })
 
 const tick = () => {
