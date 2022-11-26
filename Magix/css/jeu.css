@@ -71,14 +71,12 @@
     height: 100%;
     flex:1;
     flex-direction: column;
-    font-family: 'Press Start 2P';
 }
 
 .stats3{
     height: 100%;
     flex:1;
     flex-direction: row;
-    font-family: 'Press Start 2P';
 }
 
 #extrawindow1{
@@ -89,7 +87,6 @@
     background-repeat: no-repeat;
     background-size: 100% auto;
     font-size: x-small;
-    font-family: 'Press Start 2P';
 }
 
 #extrawindow2{
@@ -160,14 +157,9 @@
     height: 32%;
 }
 
-.stats>div{
-    font-family: 'Press Start 2P';
-}
-
 #rightplayzone>div {
     width: 100%;
     height: 100px;
-    font-family: 'Press Start 2P';
     margin: auto;
 }
 
@@ -275,7 +267,6 @@
     display:flex;
     justify-content: center;
     text-align: center;
-    font-family: 'Press Start 2P';
     font-size: smaller;
 }
 
@@ -325,7 +316,6 @@
     word-wrap: break-word;
     font-size:x-small;
     line-height: 1.2;
-    font-family: 'Press Start 2P';
     padding: 2px;
 }
 
@@ -397,7 +387,6 @@
 
 #playercardleft{
     flex-direction: column;
-    font-family: 'Press Start 2P';
     line-height: 1.5;
 }
 

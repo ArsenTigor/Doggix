@@ -19,7 +19,7 @@
 				$temp = array('percent' => sprintf('%0.2f', round($calc, 2)));
 				$array += $temp;
 			}
-			var_dump($cards); exit();
+			// var_dump($cards); exit();
 			return compact("cards");
 		}
 

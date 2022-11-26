@@ -1,0 +1,42 @@
+#statcontainall{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: url("../img/home.webp");
+    background-size: 100% 100%;
+
+}
+
+#statcontainer{
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 80%;
+    border: 3px solid black;
+    border-radius: 5px;
+    overflow: scroll;
+    background-color: rgba(128, 128, 128, 0.7);
+}
+
+.bigger{
+    font-size: xx-large;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.stats{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: large;
+}
+
+
+.stats > div{
+    width: 30%;
+}
