@@ -40,3 +40,31 @@
 .stats > div{
     width: 30%;
 }
+
+.backbutton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 5px;
+    width: 120px;
+    height: 50px;
+    background-image: url(../img/cutebackground3.jpg);
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.resetbutton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 5px;
+    width: 120px;
+    height: 50px;
+    background-image: url(../img/cutebackground3.jpg);
+    position: absolute;
+    top: 65px;
+    right: 5px;
+}

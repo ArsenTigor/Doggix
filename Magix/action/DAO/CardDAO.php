@@ -39,5 +39,20 @@
             return $statement->fetchAll();
         }
 
+        public static function resetTable(){
+            $connection = Connection::getConnection();
+            $statement = $connection->prepare("DROP TABLE IF EXISTS card_data");
+            $statement->setFetchMode(PDO::FETCH_ASSOC);
+            $statement->execute();
+
+        }
+
+        public static function createTable(){
+            $connection = Connection::getConnection();
+            $statement = $connection->prepare("CREATE TABLE card_data( id SERIAL PRIMARY KEY, cardid INT)");
+            $statement->setFetchMode(PDO::FETCH_ASSOC);
+            $statement->execute();
+        }
+
     }
     

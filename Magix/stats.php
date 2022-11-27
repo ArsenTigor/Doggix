@@ -46,11 +46,26 @@
     </div>
 
     <div class="backbutton">Back</div>
+    <div class="resetbutton">Reset</div>
 
     <script>
         document.querySelector(".backbutton").onclick = e =>{
             window.location.href = "./chat.php"
         }
+        document.querySelector(".resetbutton").onclick = e =>{
+            let formData = new FormData();
+            formData.append("reset", "yes")
+            fetch("ajax-jeu.php", {
+            method: "POST",
+            body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                
+            })
+            location.reload();
+        }
+        
     </script>
 
 </div>

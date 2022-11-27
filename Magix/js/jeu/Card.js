@@ -10,7 +10,7 @@ export default class Card {
 
         this.cardTop = document.createElement("div");
         this.cardTop.classList.add("cardimage");
-        this.cardTop.style.backgroundColor = "rgb(159, 255, 159)";
+        // this.cardTop.style.backgroundColor = "rgb(159, 255, 159)";
 
 
         this.cardBottomContainer = document.createElement("div");
@@ -49,6 +49,13 @@ export default class Card {
         this.updateCardData(this.data);
 
         this.cardTop.append(this.cardEffects);
+
+        if(this.data.cost <= 10 && this.data.cost >= 1){
+            this.cardTop.style.backgroundImage = "url("+ "../Magix/img/card/" + String(this.data.cost) + ".png" + ")";
+        }
+        else{
+            this.cardTop.style.backgroundImage = "url("+ "../Magix/img/card/other.gif" + ")";
+        }
     }
 
     updateCardData(data){

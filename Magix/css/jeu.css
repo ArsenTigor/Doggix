@@ -216,13 +216,18 @@
     border-radius: 5px;
     text-align: left;
     margin: 0px 10px;
+    background-image: url(../img/pawbackgroundresized.png);
 }
 
 .cardimage{
     position: relative;
-    height: 55%;
+    height: 60%;
     width: 100%;
     border-bottom: 2px solid black;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
 }
 
 .cardstats{
@@ -314,7 +319,7 @@
 
 .carddesciptioncontain{
     overflow: hidden;
-    height: 45%;
+    height: 40%;
     width: 100%;
 
 }

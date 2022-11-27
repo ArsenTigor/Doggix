@@ -35,7 +35,9 @@
                     $data["type"] = "PLAY";
                     $data["uid"] = $_POST["gameUID"];
                     $result = parent::callAPI("games/action", $data);
-                    CardDAO::addCardPlayed($_POST["gameID"]);
+                    if($result != "NOT_ENOUGH_ENERGY"){
+                        CardDAO::addCardPlayed($_POST["gameID"]);
+                    }
                 }
                 if($_POST["game"] == "attack"){
                     $data["type"] = "ATTACK";
@@ -43,8 +45,15 @@
                     $data["targetuid"] = $_POST["gameTarget"];
                     $result = parent::callAPI("games/action", $data);
                 }
+
             }
 
+            else if(isset($_POST["reset"])){
+                CardDao::resetTable();
+                CardDao::createTable();
+            }
+
+           
 
             return compact("result");
         }
