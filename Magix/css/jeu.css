@@ -345,7 +345,7 @@
 }
 
 .glow{
-    border: solid green 5px;
+    box-shadow: 0 0 25px 5px #48abe0;
 }
 
 #waiting, #gamewon, #gamelost{
@@ -364,7 +364,7 @@
 
 #waiting{
     display: flex;
-    background-image: url(../img/waiting2.gif);
+    background-image: url(../img/waiting.webp);
 }
 
 #gamewon{

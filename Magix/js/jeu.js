@@ -53,7 +53,7 @@ const state = () => {
     })
 .then(response => response.json())
 .then(data => {
-    console.log(data); // contient les cartes/état du jeu.
+    // console.log(data); // contient les cartes/état du jeu.
 
 
 
@@ -96,15 +96,7 @@ const state = () => {
         document.querySelector("#timer").innerHTML = data.remainingTurnTime;
         if(data.yourTurn == false){
             document.querySelector("#currentplayer").innerHTML = data.opponent.username + "'s<br>turn";
-            attackUID = -1;
-            targetUID = -1;
-            opponentBoard.field.forEach(element => {
-                element.card.classList.remove("glow")
-            });
-            playerBoard.field.forEach(element => {
-                element.card.classList.remove("glow")
-            });
-            
+            unglowUnselect();
         }
         else{
             let user = ""
@@ -196,23 +188,24 @@ const state = () => {
                 let formData = new FormData();
                 formData.append("game", "play")
                 formData.append("gameUID", element.uid)
-                console.log(element.id);
+                // console.log(element.id);
                 formData.append("gameID", element.id)
                 fetch("ajax-jeu.php", {
-                method: "POST",
-                body: formData
+                    method: "POST",
+                    body: formData
                 })
                 .then(response => response.json())
                 .then(result => {
                     error(result);
                 })
+                unglowUnselect();
             }
         });
 
         //Selecting Attacker
         playerBoard.field.forEach(element => {
             element.card.onclick = e => {
-                console.log("CLICKED ON PLAYER CARD")
+                // console.log("CLICKED ON PLAYER CARD")
                 element.card.classList.add("glow")
                 attackUID = element.uid;
             }
@@ -221,7 +214,7 @@ const state = () => {
         //Selecting Target
         opponentBoard.field.forEach(element => {
             element.card.onclick = e => {
-                console.log("CLICKED ON OPPOENENT CARD")
+                // console.log("CLICKED ON OPPOENENT CARD")
                 targetUID = element.uid;
             }
         });
@@ -240,13 +233,7 @@ const state = () => {
             .then(result => {
                 error(result);
             })
-
-            playerBoard.field.forEach(element => {
-                element.card.classList.remove("glow")
-            });
-
-            targetUID = -1
-            attackUID = -1
+            unglowUnselect();
         }
 
 
@@ -332,6 +319,7 @@ document.querySelector("#surrender").onclick = e => {
 }
 
 document.querySelector("#heropower").onclick = e => {
+    unglowUnselect();
     let formData = new FormData();
     formData.append("menu", "heropower")
     fetch("ajax-jeu.php", {
@@ -356,7 +344,6 @@ document.querySelector("#togglechat").onclick = e => {
         chatboxOpen = false;
         document.querySelector("#chatboxcontainer").style.display = "none";
     }
-    console.log("HELLO")
 }
 
 
@@ -418,4 +405,14 @@ const error = (errorMessage) => {
     }, 5000);
 }
 
+const unglowUnselect = () => {
+    attackUID = -1;
+    targetUID = -1;
+    opponentBoard.field.forEach(element => {
+        element.card.classList.remove("glow")
+    });
+    playerBoard.field.forEach(element => {
+        element.card.classList.remove("glow")
+    });
+}
 
