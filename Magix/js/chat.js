@@ -51,6 +51,19 @@ window.addEventListener("load", () => {
 		spriteList.push(walker);
 	}, 1000);
 
+
+	//Set let session key du user à un localstorage
+	let formData = new FormData();
+	formData.append("username", "anything")
+	fetch("ajax.php", {
+	method: "POST",
+	body: formData
+	})
+	.then(response => response.json())
+	.then(result => {
+		localStorage.setItem("username", result);
+	})
+
 })
 
 const tick = () => {

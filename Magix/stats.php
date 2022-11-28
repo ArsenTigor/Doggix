@@ -12,7 +12,7 @@
 <div id=statcontainall class="flexcenter">
     
     <div id=statcontainer>
-        <div class="flexcenter bigger">Statistiques</div>
+        <div class="flexcenter bigger" id="titre">Statistiques</div>
         <div class="stats">
             <div class="numcard">
                 Card ID
@@ -65,6 +65,14 @@
             })
             location.reload();
         }
+
+    window.addEventListener("load", () => {
+        
+        let temp = localStorage.getItem("username");
+        console.log(temp)
+        document.querySelector("#titre").innerHTML = temp + "'s Statistiques"
+
+    })
         
     </script>
 
