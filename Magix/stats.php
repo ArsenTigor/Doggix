@@ -66,13 +66,12 @@
             location.reload();
         }
 
-    window.addEventListener("load", () => {
-        
-        let temp = localStorage.getItem("username");
-        console.log(temp)
-        document.querySelector("#titre").innerHTML = temp + "'s Statistiques"
 
-    })
+        let temp = localStorage.getItem("username");
+        if(temp != null){
+            document.querySelector("#titre").innerHTML = temp + "'s Statistiques"
+        }
+
         
     </script>
 
