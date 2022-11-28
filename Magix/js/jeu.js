@@ -33,6 +33,7 @@ let lineList = []
 let displaytext = ""
 let ennemyQuoteFetched = false;
 let tauntPresent = false;
+let tauntDetected = false;
 let chatboxOpen = false;
 
 lineList.push("HELP!!!!!!!")
@@ -266,11 +267,16 @@ const state = () => {
         opponentBoard.field.forEach(element => {
             if(element.data.mechanics.includes("Taunt")){
                 tauntPresent = true;
+                tauntDetected = true;
             }else{
-                tauntPresent = false;
+                if (tauntDetected == false){
+                      tauntPresent = false;
+                }
             }
         });
         if(tauntPresent == true){
+            tauntDetected = false;
+            tauntPresent = false;
             opponentBoard.field.forEach(element => {
                 if(!element.data.mechanics.includes("Taunt")){
                     element.card.classList.add("greyed")
