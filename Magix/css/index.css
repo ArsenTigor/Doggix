@@ -195,3 +195,14 @@ form{
     font-size: 25px;
     margin-left: 25px;
 }
+
+button{
+    width: 175px;
+    padding: 5px;
+    border: black 3px solid;
+    border-radius: 5px;
+    background-color: none;
+    background-image: url(../img/cutebackground3.jpg);
+    font-family: 'Press Start 2P';
+    cursor: pointer;
+}

@@ -22,7 +22,7 @@
         <div class="form-input"><input type="password" name="password" /></div>
         <div class="form-separator"></div>
         
-        <div class="center"><button>Log in</button></div>
+        <div class="center"><button>Walk doggo</button></div>
         <div class="form-separator"></div>
     </form>
 </div>
