@@ -63,7 +63,9 @@
             .then(result => {
                 
             })
-            location.reload();
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
         }
 
 
