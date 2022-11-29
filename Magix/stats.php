@@ -45,8 +45,8 @@
         ?>
     </div>
 
-    <div class="backbutton">Back</div>
-    <div class="resetbutton">Reset</div>
+    <div class="backbutton cursor">Back</div>
+    <div class="resetbutton cursor">Reset</div>
 
     <script>
         document.querySelector(".backbutton").onclick = e =>{

@@ -9,7 +9,7 @@
     require_once("partial/header.php");
 ?>
 
-<div id=togglechat></div>
+<div id=togglechat class="cursor" ></div>
 <div id="chatboxcontainer">
 
     <iframe style="width:100%;height:90%;" onload="applyStyles(this)" 
@@ -41,7 +41,7 @@
             <div id="opponentlife" class="flexcenter backgroundcenter" >LIFE</div>
         </div>
 
-        <div class="backgroundcenter" id="opponentavatar"></div>
+        <div class="backgroundcenter cursor" id="opponentavatar"></div>
 
         <div id="extrawindow1" class="flexcenter"></div>
         <div id="extrawindow2" class="flexcenter"></div>
@@ -76,9 +76,9 @@
         </div>
         
         <div id="menu" class="flexspacearound">
-            <div id="heropower"></div>
-            <div id="endturn"></div>
-            <div id="surrender"></div>
+            <div id="heropower" class="cursor"></div>
+            <div id="endturn" class="cursor"></div>
+            <div id="surrender" class="cursor"></div>
         </div>
     </div>
 

@@ -7,16 +7,14 @@ export default class Card {
 
         this.card = document.createElement("div");
         this.card.classList.add("card");
+        this.card.classList.add("cursor");
 
         this.cardTop = document.createElement("div");
         this.cardTop.classList.add("cardimage");
-        // this.cardTop.style.backgroundColor = "rgb(159, 255, 159)";
-
 
         this.cardBottomContainer = document.createElement("div");
         this.cardBottomContainer.classList.add("carddesciptioncontain");
         
-
         this.cardBottom = document.createElement("div");
         this.cardBottom.classList.add("carddesciption");
         this.cardBottom.style.backgroundColor = "rgba(100, 255, 100)";
@@ -44,7 +42,6 @@ export default class Card {
 
         this.cardEffects = document.createElement("div");
         this.cardEffects.classList.add("cardeffects");
-
 
         this.updateCardData(this.data);
 

@@ -19,9 +19,24 @@
 
 <div id="maincontainer" class="flexcenter">
     <div id="chatmenu" class="flexspacearound">
-        <div class="roomtype" id="training">TRAINING</div>
-        <div class="roomtype" id="pvp">PVP</div>
-        <div class="roomtype" id="stats">STATS</div>
+        <div class="roomtype cursor" id="training">TRAINING</div>
+        <div class="roomtype cursor" id="pvp">PVP</div>
+        <div class="roomtype cursor" id="stats">STATS</div>
+        <div class="roomtype cursor">
+            <?php
+                if ($data["public"]) {
+                    ?>
+                        <a href="?logout=true">
+                            <div class="flexcenter "id="disconnect">
+                                DISCONNECT
+                            </div>    
+                        </a>
+                        
+                    <?php
+                }
+            ?>
+        </div>
+
     </div>
 
     <div id="chatboxcontainer">
