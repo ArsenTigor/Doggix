@@ -7,6 +7,11 @@
     require_once("partial/header.php");
 ?>
 
+<div id="framedeck">
+    <div id="closedeck">X</div>
+    <iframe style="width:100%;height:90%;"src="https://magix.apps-de-cours.com/server/#/deck/<?=$data["key"]?>/large"></iframe>
+</div>
+
 <div id="background-container-absolute">
     <div id="background-container">
         <div class="background" id="bgtop1"><img src="./img/cityclose.png" alt=""></div>
@@ -21,7 +26,9 @@
     <div id="chatmenu" class="flexspacearound">
         <div class="roomtype cursor" id="training">TRAINING</div>
         <div class="roomtype cursor" id="pvp">PVP</div>
+        <div class="roomtype cursor" id="deck">DECK</div>
         <div class="roomtype cursor" id="stats">STATS</div>
+
         <div class="roomtype cursor">
             <?php
                 if ($data["public"]) {

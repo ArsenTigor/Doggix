@@ -116,5 +116,14 @@ room.forEach(element => {
 });
 
 document.querySelector("#stats").onclick = e => {
-   	 window.location.href = "./stats.php"
+   	window.location.href = "./stats.php"
+}
+
+document.querySelector("#deck").onclick = e => {
+	document.querySelector("#framedeck").style.display = "flex";
+	console.log("AAAA")
+}
+
+document.querySelector("#closedeck").onclick = e => {
+	document.querySelector("#framedeck").style.display = "none";
 }
