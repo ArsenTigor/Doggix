@@ -87,8 +87,10 @@ const tick = () => {
 let room = [];
 let training = document.querySelector("#training");
 let pvp = document.querySelector("#pvp");
+let arena = document.querySelector("#arena");
 room.push(training);
 room.push(pvp);
+room.push(arena);
 room.forEach(element => {
 	element.onclick = e => {
 		let roomType = element.innerHTML;
@@ -101,6 +103,7 @@ room.forEach(element => {
 		.then(response => response.json())
 		.then(result => {
 			if(result == "JOINED_TRAINING"){
+				console.log("Joining training");
 				window.location.href = "./jeu.php"
 			}
 			if(result == "JOINED_PVP"){
@@ -121,7 +124,6 @@ document.querySelector("#stats").onclick = e => {
 
 document.querySelector("#deck").onclick = e => {
 	document.querySelector("#framedeck").style.display = "flex";
-	console.log("AAAA")
 }
 
 document.querySelector("#closedeck").onclick = e => {

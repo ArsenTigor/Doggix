@@ -26,6 +26,7 @@
     <div id="chatmenu" class="flexspacearound">
         <div class="roomtype cursor" id="training">TRAINING</div>
         <div class="roomtype cursor" id="pvp">PVP</div>
+        <div class="roomtype cursor" id="arena">ARENA</div>
         <div class="roomtype cursor" id="deck">DECK</div>
         <div class="roomtype cursor" id="stats">STATS</div>
 

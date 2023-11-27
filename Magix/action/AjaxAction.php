@@ -28,6 +28,10 @@
                     $data["type"] = "COOP";
                     $result = parent::callAPI("games/auto-match", $data);
                 }
+                else if($_POST["typeOfRoom"] == "ARENA"){
+                    $data["type"] = "ARENA";
+                    $result = parent::callAPI("games/auto-match", $data);
+                }
             }
 
             if(isset($_POST["username"])){
