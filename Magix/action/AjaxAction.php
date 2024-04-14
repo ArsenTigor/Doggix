@@ -14,22 +14,21 @@
                 $data["key"] = $_SESSION["key"];
                 if($_POST["typeOfRoom"] == "TRAINING"){
                     $data["type"] = "TRAINING";
+                    $data["mode"] = "STANDARD";
                     $result = parent::callAPI("games/auto-match", $data);
                 }                
                 else if($_POST["typeOfRoom"] == "PVP"){
                     $data["type"] = "PVP";
                     $result = parent::callAPI("games/auto-match", $data);
                 }
-                else if($_POST["typeOfRoom"] == "STANDARD"){
-                    $data["type"] = "STANDARD";
+                else if($_POST["typeOfRoom"] == "ARENA"){
+                    $data["type"] = "TRAINING";
+                    $data["mode"] = "ARENA";
                     $result = parent::callAPI("games/auto-match", $data);
                 }
                 else if($_POST["typeOfRoom"] == "COOP"){
-                    $data["type"] = "COOP";
-                    $result = parent::callAPI("games/auto-match", $data);
-                }
-                else if($_POST["typeOfRoom"] == "ARENA"){
-                    $data["type"] = "ARENA";
+                    $data["type"] = "TRAINING";
+                    $data["mode"] = "COOP";
                     $result = parent::callAPI("games/auto-match", $data);
                 }
             }

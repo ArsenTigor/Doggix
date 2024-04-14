@@ -88,9 +88,12 @@ let room = [];
 let training = document.querySelector("#training");
 let pvp = document.querySelector("#pvp");
 let arena = document.querySelector("#arena");
+let coop = document.querySelector("#coop");
 room.push(training);
 room.push(pvp);
 room.push(arena);
+room.push(standard);
+room.push(coop);
 room.forEach(element => {
 	element.onclick = e => {
 		let roomType = element.innerHTML;
@@ -114,6 +117,7 @@ room.forEach(element => {
 				console.log("Creating pvp");
 				window.location.href = "./jeu.php"
 			}
+			console.log(result)
 		})
 	}
 });
