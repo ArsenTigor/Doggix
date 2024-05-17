@@ -92,7 +92,6 @@ let coop = document.querySelector("#coop");
 room.push(training);
 room.push(pvp);
 room.push(arena);
-room.push(standard);
 room.push(coop);
 room.forEach(element => {
 	element.onclick = e => {
