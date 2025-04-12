@@ -53,40 +53,40 @@
         /**
          * data = array('key1' => 'value1', 'key2' => 'value2');
          */
-        protected function callAPI($service, $data) {
-            $apiURL = "https://magix.apps-de-cours.com/api/" . $service;
-            $result = null;
-          
-            if ($service == "games/action") {
-              $milliseconds = microtime(true) * 1000;
-          
-              if (!empty($_SESSION["lastActionCall"]) && 
-                  $milliseconds - $_SESSION["lastActionCall"] < 250) {
-                $result = json_encode("TOO_MANY_ACTIONS");
-              }
-                          
-              $_SESSION["lastActionCall"] = $milliseconds;
-            }
-          
-            if (empty($result)) {
-              $options = [
-                'http' => [
-                  'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-                  'method'  => 'POST',
-                  'content' => http_build_query($data)
-                ]
-              ];
-          
-              $context  = stream_context_create($options);
-          
-              $result = file_get_contents($apiURL, false, $context);
-              if (strpos($result, "<br") !== false) {
-                $result = json_encode($result);
-              }
-            }
-          
-            return json_decode($result);
-        }
+	protected function callAPI($service, $data) {
+	  $apiURL = "https://magix.apps-de-cours.com/api/" . $service;
+	  $result = null;
+	
+	  if ($service == "games/action") {
+	    $milliseconds = microtime(true) * 1000;
+	
+	    if (!empty($_SESSION["lastActionCall"]) && 
+		$milliseconds - $_SESSION["lastActionCall"] < 250) {
+	      $result = json_encode("TOO_MANY_ACTIONS");
+	    }
+			
+	    $_SESSION["lastActionCall"] = $milliseconds;
+	  }
+	
+	  if (empty($result)) {
+	    $options = [
+	      'http' => [
+		'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+		'method'  => 'POST',
+		'content' => http_build_query($data)
+	      ]
+	    ];
+	
+	    $context  = stream_context_create($options);
+	
+	    $result = file_get_contents($apiURL, false, $context);
+	    if (strpos($result, "<br") !== false) {
+	      $result = json_encode($result);
+	    }
+	  }
+	
+	  return json_decode($result);
+	}
 
 
         protected abstract function executeAction();
